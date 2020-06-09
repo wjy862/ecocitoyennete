@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="./Public/Admin/Css/public.css" rel="stylesheet" type="text/css" />
+<title>Mangement de TypesAffiche</title>
+</head>
+
+<body>
+<table width="100%" border="0" align="center" cellpadding="1" cellspacing="1" class="border">
+	<tr class="topbg"><td>Mangement de TypesAffiche</td></tr>
+	<tr class="tdbg">
+		<td height="30">&nbsp;&nbsp;
+			<a href="?c=TypesAffiche&a=index">Mangement</a>&nbsp;|&nbsp;
+			<a href="?c=TypesAffiche&a=add">Ajouter</a>
+		</td>
+	</tr>
+</table> 
+<br />
+<form name="form1" method="post" action="?c=TypesAffiche&a=update">
+<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="border">
+	<tr class="title"><td colspan="2" align="center">Edit</td></tr>
+         <input name="idTypeAffiche" type="text" style="display:none" value="<{$typesAfficheOne.idTypeAffiche}>"/>
+	<tr class="tdbg">
+		<td width="11%" height="30" align="right">Nom de Catégorie:</td>
+		<td width="89%"><input name="nomTypeAffiche" type="text" size="90" maxlength="20" value="<{$typesAfficheOne.nomTypeAffiche}>" /></td>
+	</tr>
+	
+	<tr class="tdbg">
+		<td height="30" align="right">&nbsp;</td>
+		<td>
+			<input type=hidden name =id value=<{$typesAfficheOne.idTypeAffiche}> >
+			<input type="submit" value="Modifier" />
+			<input type="button" onclick="history.go(-1)" value="Retour" />
+		</td>
+	</tr>
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <style>
+
+#Login{
+  text-align: center;
+
+}
+
+h1 {
+  color: #966F33;
+}
+
+label{
+  color: #966F33;
+}
+    </style>
+<script type="text/javascript">
+function SetFocus()
+{
+	if(document.form1.username.value==""){
+		document.form1.username.focus();
+	}else{
+		document.form1.username.select();
+	}
+}
+</script>
+  </head>
+
+  <body style = "background: url('https://wallpaperaccess.com/full/2024760.jpg')">
+
+<a href="http://www.ut-capitole.fr"><IMG src="./images/UT1C-logo-informatique.jpg"title="Miage" height="100"/></a>
+<h1 style="text-align:center">Ecocitoyenneté</h1>
+
+
+	<form name="form1" method="post" action="?c=User&a=loginCheck" id="form1" onSubmit="return checkForm();">
+		
+		<table align="center" width="400" border=0 >
+			
+			<tr><th colspan="2" style="font-size:21px; text-transform:uppercase;
+			color: #8EC2F5;">Connectez-Vous</th></tr>
+			<tr>
+				<td width="100" align="right">Mail:</td>
+				<td><input  style="float:left;"   name="mailUser" required></td>
+			</tr>
+			<tr>
+				<td align="right">Mot de passe:</td>
+				<td><input  style="float:left;"  type="password" name="password" required></td>
+			</tr>
+			<tr>
+				<td align="right">Code de vérification</td>
+				<td>
+					<input style="float:left;" type="text" name="verify" size="4" maxlength="4" required>
+					<img  id ="img" style="float:left; margin-left:10px;cursor:pointer;height: 22px" src="?c=User&a=captcha" onClick="this.src='?c=User&a=captcha&'+Math.random()" > 
+					<input style="float:left;" type=button value="Refresh" onClick="document.getElementById('img').onclick()">
+					
+					
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input style="float:left;" type="submit" value="Login">
+					
+					<input type=reset value="Reset">
+				</td>
+			</tr>
+
+		</table>
+	</form>
+
+
+</br></br></br>
+	<table align="center" border=0.5px>
+		<tr><th>Compte</th><th> </th><th>Mot de passe</th></tr>
+		<tr><td>Bonnet.Lambert@gmail.com</td><td>  </td><td>123456</td></tr>
+
+	</table>
+  </body>
+</html>
+<script language="javascript">
+SetFocus();
+function checkForm()
+{
+	//定义用户名、密码正则表达式
+	var reg1 = /^(\w{5,15})$/;
+	if(!reg1.test(document.form1.username.value))
+	{
+		alert("pas correct format de nom");
+		document.form1.username.focus();
+		return false;
+	}else if(!reg1.test(document.form1.password.value))
+	{
+		alert("pas correct format de mot de passe");
+		document.form1.password.focus();
+		return false;
+	}
+}
+</script>

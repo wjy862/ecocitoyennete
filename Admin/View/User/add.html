@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="./Public/Admin/Css/public.css" rel="stylesheet" type="text/css" />
+<title>Management d'utlisateur</title>
+</head>
+
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0" oncontextmenu="self.event.returnValue=false">
+<noscript><iframe src=*.html></iframe></noscript>
+<table width="100%" border="0" align="center" cellpadding="1" cellspacing="1" class="border">
+	<tr class="topbg"><td>Management d'utlisateur</td></tr>
+	<tr class="tdbg">
+	  <td height="30">&nbsp;&nbsp;
+	  	<a href="?c=User&a=index">Management</a>&nbsp;|&nbsp;
+	  	<a href="?c=User&a=add">Ajouter</a></td>
+	</tr>
+</table>
+<br/>
+<form id="form1" name="form1" method="post" action="?c=User&a=insert">
+<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="border">
+	<tr class="title">
+		<td colspan="2" align="center">Ajouter</td>
+	</tr>
+	<tr class="tdbg">
+		<td width="15%" height="30" align="right">Mail:</td>
+		<td width="85%">
+			<input name="mailUser" type="mail" id="mailUser" size="20" maxlength="15" />
+			<font color="#FF0000">*</font>
+			<font color="#666666">Length:5-15, chiffres ou lettres</font>
+		</td>
+	</tr>
+	<tr class="tdbg">
+		<td height="30" align="right">Mot de pass:</td>
+		<td>
+			<input name="password" type="password" id="password" size="20" maxlength="15" />
+			<font color="#FF0000">*</font>
+			<font color="#666666">Length:5-15, chiffres ou lettres</font>
+		</td>
+	</tr>
+	<tr class="tdbg">
+		<td height="30" align="right">Confiermez mot de pass</td>
+		<td>
+			<input name="confirmpwd" type="password" id="confirmpwd" size="20" maxlength="15" />
+			<font color="#FF0000">*</font>
+			<font color="#666666">Soyez cohérent avec la première fois</font>
+		</td>
+	</tr>
+	<tr class="tdbg">
+		<td height="30" align="right">Nom :</td>
+		<td>
+			<input name="nomUser" type="text" id="nomUser" size="20" maxlength="15" />
+			<font color="#FF0000">*</font> <font color="#666666">Ton nom réel</font>
+		</td>
+	</tr>
+	<tr class="tdbg">
+		<td height="30" align="right">Prenom</td>
+		<td>
+			<input name="prenomUser" type="text" id="prenomUser" size="20" maxlength="20" />
+			<font color="#FF0000">*</font> 
+			<font color="#666666">ex: Dimitri</font>
+		</td>
+	</tr>
+	<tr class="tdbg">
+		<td height="30" align="right">Etat</td>
+		<td>
+			<input type="radio" id="etat"  name="etat" value="1" checked="checked" />Normal
+			<input type="radio" id="etat"  name="etat" value="0" />Suspension
+		</td>
+	</tr>
+	<tr class="tdbg">
+		<td height="30" align="right">Poste:</td>
+		<td>
+			<select name="idTypeUser">
+				<option value="1" selected="selected">user</option>
+				<option value="2">prof</option>
+                                <option value="3">admin</option>
+                                <option value="4">admin PUT1</option>
+			</select>
+		</td>
+	</tr>
+	<tr class="tdbg">
+		<td height="30" align="right">&nbsp;</td>
+		<td>
+			<input type="submit" value="Ajouter" />
+			<input type="button" onclick="history.go(-1)" value="Retour" />
+		</td>
+	</tr>
+</table>
+</form>
+</body>
+</html>

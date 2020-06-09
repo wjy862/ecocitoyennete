@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="./Public/Admin/Css/public.css" rel="stylesheet" type="text/css" />
+<title>Article Management</title>
+<script charset="utf-8" src="./Public/Admin/Js/ckeditor/ckeditor.js">
+	
+</script>
+ 
+
+
+</head>
+
+<body>
+<table width="100%" border="0" align="center" cellpadding="1" cellspacing="1" class="border">
+	<tr class="topbg"><td>Management</td></tr>
+	<tr class="tdbg">
+		<td height="30">&nbsp;&nbsp;
+			<a href="?c=Article&a=index">Management</a>&nbsp;|&nbsp;
+			<a href="?c=Article&a=add">Ajouter</a>
+		</td>
+	</tr>
+</table>
+<br />
+<form name="form1" method="post" action="?c=Article&a=insert">
+     
+<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="border">
+	<tr class="title"><td colspan="2" align="center">Ajouter</td></tr>
+	<tr class="tdbg">
+		<td width="100" height="30" align="right">Catégorie</td>
+	<td>
+	<select name="idCategorie">
+		<option value="">Tous</option>
+		<{foreach $categories as $categorie}>
+		<option value="<{$categorie.idCategorie}>">
+			<{str_repeat('**',$categorie.level)}>
+			<{$categorie.nomCategorie}>
+		</option>
+		<{/foreach}>
+	</select>
+	</td>
+	</tr>
+	<tr class="tdbg">
+		<td height="30" align="right">Titre:</td>
+		<td><input name="titreArticle" type="text" size="90" maxlength="200" /></td>
+	</tr>
+	<tr class="tdbg">
+		<td height="30" align="right">Contenu:</td>
+		
+    	
+		
+		<td><textarea  id="editor" name="contenuArticle" style="width:95%;height:300px;"></textarea></td>
+		
+	</tr>
+	<tr class="tdbg">
+		<td height="30" align="right">&nbsp;</td>
+		<td>
+			<input type="submit" value="Ajouter" />
+			<input type="button" onclick="history.go(-1)" value="Retour" />
+		</td>
+	</tr>
+</table>
+</form>
+
+<script>
+    CKEDITOR.replace( 'editor' );
+</script>
+
+</body>
+</html>

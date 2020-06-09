@@ -1,0 +1,38 @@
+/***********************后台登录页面的CSS样式******************************/
+/*头部样式*/
+body{font-family:Helvetica;color:black;background-color
+:#D6E9FC;padding:30px;margin-left:2cm;
+margin-right:2cm;margin-top:2cm;margin-bottom:2cm;text-align:center;}
+html{background-color:#8EC2F5}
+#header{
+	background-color:#D6E9FC;
+	height:41px;
+}
+#content{
+	background-color:#D6E9FC;
+	padding:395px  0px; 
+	text-align:right;
+}
+#buttom{
+	background-color:#D6E9FC;
+	height:20px;
+}
+#buttom .copy{float:right;}
+#buttom .copy2{
+	float:left;
+	padding-left:30%;
+	color:#93a1ab;
+	font-size:10px;
+	line-height:20px;
+}
+
+/*中间布局样式*/
+#position{
+	position:absolute;
+	top:88px;
+	margin:0px 0px 0px -320px;
+	left:50%;
+}
+
+
+

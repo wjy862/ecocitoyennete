@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="./Public/Admin/Css/public.css" rel="stylesheet" type="text/css" />
+<title>Commentaire d'article</title>
+<script type="text/javascript">
+function confirmDel(idCommentaire)
+{
+	
+	if(window.confirm("Vous voulez le supprimer?"))
+	{
+		location.href = "?c=Commentaire&a=delete&idCommentaire="+idCommentaire;
+	}
+}
+</script>
+</head>
+
+<body>
+<!--导航栏-->
+<table width="100%" border="0" align="center" cellpadding="1" cellspacing="1" class="border">
+	<tr class="topbg"><td>Commentaire d'article</td></tr>
+	<tr class="tdbg">
+		<td height="30">&nbsp;&nbsp;
+			
+			
+		</td>
+	</tr>
+</table>
+
+<!--搜索表单-->
+<div style="padding:8px 5px;margin:8px 3px;background-color:#fefefe;text-align:center;">
+<form name="form1" method="post" action="#">
+	<input type="text" name="keyword" style="width:300px;" />
+	<input type="submit" value="Rechercher" />
+	<input type="hidden" name="ac" value="search" />
+</form>  
+</div>
+
+<div style="padding:8px 5px;margin:8px 3px;background-color:#fefefe;text-align:center;">
+<a onclick="javascript:history.back(-1);" ><p class="title" align="center">Back</p></a>
+</div>
+
+<!--文章列表-->
+<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="border">
+<tr class="title" align="center">
+	<td>IDcommentaire</td>
+	<td>commentaire</td>
+	<td>Nom user</td>
+	<td>Prénom user</td>
+	<td>Titre d'article</td>
+	<td>Date</td>
+	<td>Option</td>
+</tr>
+<{foreach $commentaires as $commentaire}>
+<tr class="tdbg" align="center">
+	
+	<td><{$commentaire.idCommentaire}></td>
+	<td align="left" size="90"><{$commentaire.commentaire}></td>
+	<td align="left"><{$commentaire.idUser}></td>
+        <td align="left"><{$commentaire.idUser}></td>
+	<td><{$commentaire.idAffiche}></td>
+        <td>date</td>
+        <!--
+	<td align="left"><{$commentaire.title}></td>
+	<td><{$commentaire.addate|date_format:'%Y-%m-%d %H:%M:%S'}></td>
+        -->
+	<td><a href="javascript:void(0)" onclick="confirmDel(<{$commentaire.idCommentaire}>)">Supprimer</a></td>
+	
+</tr>
+<{/foreach}>
+
+<!--评论分页-->
+<tr class="tdbg">
+	<td colspan="7" align="center"><{$str}></td>
+</tr>
+</table>
+</body>
+</html>

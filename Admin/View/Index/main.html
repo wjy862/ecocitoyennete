@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link type="text/css" rel="stylesheet" href="./Public/Admin/Css/public.css" />
+<style type="text/css">
+</style>
+<title>Main</title>
+</head>
+
+<body leftmargin="5" topmargin="0" marginwidth="0" marginheight="0" oncontextmenu="self.event.returnValue=false">
+<table width="100%" border="0" align="center" cellpadding="1" cellspacing="1" class="border">
+	<tr class="topbg"><td>Information de système</td></tr>
+	<tr class="tdbg">
+		<td height="30">
+		<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#f0f0f0" >
+			<tr class="tr_southidc"> 
+				<td width="38%" height="23" bgcolor="#fcfcfc">Nom: <font class="t4"><{$smarty.session.username}></font></td>
+				<td width="62%" bgcolor="#fcfcfc">IP:<font class="t4"><{$smarty.server.REMOTE_ADDR}></font></td>
+			</tr>
+			<tr class="tr_southidc"> 
+				<td width="38%" height="23" bgcolor="#fcfcfc">Session value: <font class="t4"><{ini_get('session.gc_maxlifetime')}>S</font></td>
+				<td width="62%" bgcolor="#fcfcfc">Date de connection: <font class="t4"><{$smarty.now|date_format:'%Y-%m-%d'}></font></td>
+			</tr>
+			<tr class="tr_southidc"> 
+				<td width="38%" height="23" bgcolor="#fcfcfc">Nom de domaine: <font class="t4"><{$smarty.server.SERVER_NAME}></font></td>
+				<td width="62%" bgcolor="#fcfcfc">PHP version:<font class="t4"><{$smarty.server.SERVER_SOFTWARE}></font></td>
+			</tr>
+			
+		</table>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> articleValide</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<!--web-fonts-->
+<link href='#css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+<!--js-->
+<script src="js/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }>
+</script>
+<meta name="keywords" content="My Charity Responsive web template, Bootstrap Web Templates, Flat Web Templates, AndriodCompatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+	 			});
+			});
+	</script>
+<!-- //end-smoth-scrolling -->
+</head>
+<body>
+<!--header start here-->
+<div class="mothergrid">
+	<div class="container">
+		<div class="header">
+			<div class="logo">
+			nom/logo de site
+				<!-- <a href="index.html"> <img src="images/logo.png" alt=""/> </a> -->
+			</div>
+			<span class="menu"> <img src="images/icon.png" alt=""/></span>
+			<div class="clear"> </div>
+			<div class="navg">
+				<ul class="res">
+					<li><a  href="index.html">Home</a></li>
+					<li><a href="ProtectMyUT1.html">Protect My UT1</a></li>
+					<li><a href="FindMy.html">Find me</a></li>
+		
+					<li><a class="active" href="article.html">Article</a></li>
+					<li><a href="evenement.html">Agenda</a></li>
+					<li><a href="Contactus.html">Contact us</a></li>
+					<li>&emsp;&emsp;&emsp;&emsp;</li>
+					<li><a href="Connecter.html">s'inscrire/se connecter</a></li>
+				</ul>
+				 <script>
+			                                                      $( "span.menu").click(function() {
+			                                                                                        $(  "ul.res" ).slideToggle("slow", function() {
+			                                                                                         // Animation complete.
+			                                                                                         });
+			                                                                                         });
+		                                                     </script>
+			</div>
+		<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<!--heder end here-->
+<!--contact start here-->
+<!-- <div class="contact">
+	<div class="container">
+		<div class="contact-main">
+			<h3>CONTACT US</h3>
+			<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+		</div>
+	</div>
+</div> -->
+<!--contact end here-->
+<!--get touch start here-->
+<div class="get">
+	<div class="container">
+		<div class="get-main">
+			  <h2>la date du jour :</h2>
+              <p id ="date"></p>
+              <h2>L'article a bien été modifié</h2>
+			  <a href="article.html"><button>retourner sur la liste d'article</button></a>
+			   <script>
+    	Date.prototype.Format = function (fmt) {
+        var o = {
+            "M+": this.getMonth() + 1,
+            "d+": this.getDate(),
+            "h+": this.getHours(),
+            "m+": this.getMinutes(),
+        };
+        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+        if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    };
+    	var i=new Date().Format("dd/MM/yyyy hh:mm")
+    	document.getElementById("date").innerHTML = i;
+    </script>	
+		</div>
+	</div>
+</div>
+
+<!--get touch end here-->
+
+<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+</body>
+</html>

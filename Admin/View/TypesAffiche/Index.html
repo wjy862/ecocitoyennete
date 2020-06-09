@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="./Public/Admin/Css/public.css" rel="stylesheet" type="text/css" />
+<title>Mangement de Catégorie</title>
+<script type="text/javascript">
+// cofirmer de supprimer un idTypeAffiche
+function confirmDel(idTypeAffiche)
+{
+	
+	if(window.confirm("Vous voulez le supprimer?"))
+	{
+		location.href = "?c=TypesAffiche&a=delete&idTypeAffiche="+idTypeAffiche;
+	}
+}
+</script>
+</head> 
+
+<body>
+<table width="100%" border="0" align="center" cellpadding="1" cellspacing="1" class="border">
+	<tr class="topbg"><td>Mangement de TypeAffiche</td></tr>
+	<tr class="tdbg">
+		<td height="30">&nbsp;&nbsp;
+			<a href="?c=TypesAffiche&a=index">Gérer des typeAffiches</a>&nbsp;|&nbsp;
+			<a href="?c=TypesAffiche&a=add">Ajouter</a>
+		</td>
+	</tr>
+</table>
+<br />
+<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="border">
+<tr class="title" align="center">
+	<td>IdTypeAffiche</td>
+	<td>NomTypeAffiche</td>
+	<!--<td>Nombre d'affiche</td>-->
+	<td>Option</td>
+</tr>
+<{foreach $typesAffiches as $typesAffiche }>
+<tr class="tdbg" align="center">
+	<td><{$typesAffiche.idTypeAffiche}></td>
+	<td align="left">  <{$typesAffiche.nomTypeAffiche}></td>
+	<!--<td><{$typesAffiche.orderby}></td><td>350</td>-->
+	
+	<td>
+		
+		<a href="?c=TypesAffiche&a=edit&idTypeAffiche=<{$typesAffiche.idTypeAffiche}>">Modifier</a> | 
+		<a href="javascript:void(0)" onclick="confirmDel(<{$typesAffiche.idTypeAffiche}>)">Supprimer</a>
+	</td>
+</tr>
+<{/foreach}>
+</table>
+</body>
+</html>

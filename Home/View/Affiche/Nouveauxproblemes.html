@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+
+<style>
+
+h2 {
+  text-align: center;
+
+}
+ 
+.bg2 {
+  background-image: url("https://img.over-blog-kiwi.com/0/93/15/67/20170113/ob_257772_dsc-6367.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.move {
+
+  margin-left: 10px;
+}
+</style>
+<title> Nouveaux Problemes</title>
+<link href="./Public/Home/Css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<link href="./Public/Home/Css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<!--web-fonts-->
+<link href='#css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+<!--js-->
+<script src="js/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }>
+</script>
+<meta name="keywords" content="My Charity Responsive web template, Bootstrap Web Templates, Flat Web Templates, AndriodCompatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+	</script>
+
+  </head>
+
+  <body>
+  <div class="mothergrid">
+	<div class="container">
+		<div class="header">
+			<div class="logo">
+			nom/logo de site
+				<!-- <a href="index.html"> <img src="./Public/Home/Images/logo.png" alt=""/> </a> -->
+			</div>
+			<span class="menu"> <img src="./Public/Home/Images/icon.png" alt=""/></span>
+			<div class="clear"> </div>
+			<div class="navg">
+				<ul class="res">
+					<li><a class="active" href="?c=Index&a=index">Home</a></li>
+					<li><a href="?c=Index&a=ProtectMyUT1">Protect My UT1</a></li>
+					<li><a href="?c=Index&a=FindMy">Find me</a></li>
+					
+					<li><a href="?c=Index&a=article">article</a></li>
+                                          <li><a class="active" href="?c=Index&a=evenement">Agenda</a></li>
+					<li><a href="?c=Index&a=Contactus">Contact us</a></li>
+					<li>&emsp;&emsp;&emsp;&emsp;</li>
+					<li><a href="?c=User&a=login">s'inscrire/se connecter</a></li>
+				</ul>
+				 <script>
+			                                                      $( "span.menu").click(function() {
+			                                                                                        $(  "ul.res" ).slideToggle("slow", function() {
+			                                                                                         // Animation complete.
+			                                                                                         });
+			                                                                                         });
+		                                                     </script>
+			</div>
+		<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<div class="bg2">
+<h1>Incident</h1>
+
+
+<br/>
+<form method="post" action="?c=Affiche&a=insert" enctype="multipart/form-data">
+<p><input type = "radio" name="titre" value="Arsenal"> Arsenal
+<input type = "radio" name="titre" value="Manufacture"> Manufacture
+<input type = "radio" name="titre" value="Ancienne faculté"> Ancienne faculté </p>
+
+<br/>
+
+
+       
+<p class="move">Localisation et objet (titre de rapport)</p>
+
+
+<p><textarea cols="50" rows="5" name="lieu" value="Entrez vos infos" class="move"></textarea></p>
+
+<p class="move">Description</p>
+
+<p><textarea cols="50" rows="5" name="description" value="Entrez vos infos" class="move"></textarea></p>
+
+<p class="move">Photo</p>
+
+<p><input type="file" name="photo" /></textarea></p>
+
+<input type=hidden name ="idTypeAffiche" value="1" >
+
+
+<p><input type="submit" value="Rapporter" class="move"></p>
+
+</form>
+
+
+
+
+</div>
+
+  </body>
+
+</html>

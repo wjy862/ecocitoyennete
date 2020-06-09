@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link type="text/css" rel="stylesheet" href="./Public/Admin/Css/public.css">
+<title>Top</title>
+<script type="text/javascript">
+
+function showTime(){
+	var str = "";
+	//localiser id=showTime
+	var liObj = document.getElementById("showTime");
+	var today = new Date();
+	var hours = today.getHours();
+	if(parseInt(hours)>=0 && parseInt(hours)<=11){
+		str = "Bonjour";
+	
+	}else{
+		str = "Bonsoir";
+	}
+	liObj.innerHTML = str;
+
+}
+window.onload = showTime;
+</script>
+</head>
+
+<body>
+<div class="top">
+	<div class="top1">
+		<ul>
+			<li>
+				<a target="_top" href="?c=User&a=logout" class="exit">
+					<img style="border:none;" src="./Public/Admin/Images/tuichu.gif">
+				</a>
+			</li>
+			<li><a target="_top" href="javascript:void(0)"><{$smarty.session.username}></a>,Bienvenue</li>
+			<li id="showTime"></li>
+		</ul>
+		<div class="clear"></div>
+	</div>
+	<div class="top2">
+		<ul>
+			<li><a target="_top" href="./index.php">Front end</a></li>
+			<li><a target="_top" href="./admin.php">Back end</a></li>
+		</ul>
+		<div class="clear"></div>
+	</div>
+</div>
+</body>
+</html>

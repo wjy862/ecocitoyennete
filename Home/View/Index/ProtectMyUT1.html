@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+
+<style>
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.ba {
+  
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1{
+color:SlateBlue;
+}
+ 
+.NP {
+    height:60px;
+    width:300px;
+    background-color: #3CB371;
+    color: #F8F8FF;
+}
+
+.PNR {
+
+    height:130px;
+    width:500px;
+    background-color: #6495ED;
+    color: #F8F8FF;
+}
+
+
+table td {
+
+border: 20px solid white;
+
+}
+
+.titre{ margin:auto;
+width:1000px;
+padding:10px 10px 10px 10px;
+
+     text-align:center;
+
+}
+.liste{ margin:30px auto 0 auto;
+width:700px;
+padding:10px 10px 10px 10px;
+
+     text-align:center;
+
+}
+</style>
+<title> ProtectMyUT1</title>
+<link href="./Public/Home/Css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<link href="./Public/Home/Css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<!--web-fonts-->
+<link href='#css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+<!--js-->
+<script src="./Public/Home/Js/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }>
+</script>
+<meta name="keywords" content="My Charity Responsive web template, Bootstrap Web Templates, Flat Web Templates, AndriodCompatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="./Public/Home/Js/move-top.js"></script>
+<script type="text/javascript" src="./Public/Home/Js/easing.js"></script>
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+	</script>
+
+  </head>
+
+
+<body >
+<div class="mothergrid">
+	<div class="container">
+		<div class="header">
+			<div class="logo">
+			nom/logo de site
+				<!-- <a href="index.html"> <img src="images/logo.png" alt=""/> </a> -->
+			</div>
+			<span class="menu"> <img src="./Public/Home/Images/icon.png" alt=""/></span>
+			<div class="clear"> </div>
+			<div class="navg">
+				<ul class="res">
+			<li><a class="active" href="?c=Index&a=index">Home</a></li>
+					<li><a href="?c=Index&a=ProtectMyUT1">Protect My UT1</a></li>
+					<li><a href="?c=Index&a=FindMy">Find me</a></li>
+				
+					<li><a href="?c=Index&a=article">article</a></li>
+                                          <li><a class="active" href="?c=Index&a=evenement">Agenda</a></li>
+					<li><a href="?c=Index&a=Contactus">Contact us</a></li>
+					<li>&emsp;&emsp;&emsp;&emsp;</li>
+					<li><a href="?c=User&a=login">s'inscrire/se connecter</a></li>
+				</ul>
+				 <script>
+			                                                      $( "span.menu").click(function() {
+			                                                                                        $(  "ul.res" ).slideToggle("slow", function() {
+			                                                                                         // Animation complete.
+			                                                                                         });
+			                                                                                         });
+		                                                     </script>
+			</div>
+		<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+
+<div class="titre">
+
+<h1 >Protect My UT1</h1>
+<h3>Cette fonctionnalité consiste en la déclaration d’incidents. Si un membre de l’université vient à constater une fuite d'eau, lumière restant allumé il peut par ce canal alerter les services de l’université</h3>
+<a href="?c=Affiche&a=addProtect"><button class = "NP" type="submit"><h2>Rapporter un Incident</h2></button></a>
+</div >
+
+<div class="liste">
+<h1>Incidents non resolus</h1>
+
+
+
+<table>   
+<{foreach $affiches as $affiche}>
+<tr>
+
+<td>
+<a href="?c=Affiche&a=indexProtect&idAffiche=<{$affiche.idAffiche}>">
+<img src="<{$affiche.photo}>" title="" height="230px" width="300px"></br>
+</a>
+</td>
+<td>
+<a href="?c=Affiche&a=indexProtect&idAffiche=<{$affiche.idAffiche}>">
+<Strong><{$affiche.titre}></strong></br>
+
+ <p>Localisation et objet : <{$affiche.lieu}></p>
+  <p>Description: <{$affiche.description}></p>
+</a>
+</td></tr>
+<{/foreach}>
+</table>
+
+
+
+</div>
+ <div class="pag-nations">
+<ul class="p_n-list">   
+<{$str}>	
+</ul>
+</div>
+</body>
+
+</html>

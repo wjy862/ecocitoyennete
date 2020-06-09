@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="./Public/Admin/Css/public.css" rel="stylesheet" type="text/css" />
+<title>Affiche Management</title>
+<script type="text/javascript">
+// cofirmer de supprimer un idAffiche
+function confirmDel(idAffiche)
+{
+	
+	if(window.confirm("Vous voulez le supprimer?"))
+	{
+		location.href = "?c=Affiche&a=delete&idAffiche="+idAffiche;
+	}
+}
+</script>
+</head>
+
+<body>
+<!--导航栏-->
+
+
+
+<table width="100%" border="0" align="center" cellpadding="1" cellspacing="1" class="border">
+	<tr class="topbg"><td>Gérer les affiches</td></tr>
+	<tr class="tdbg">
+		<td height="30">&nbsp;&nbsp;
+			<a href="?c=Affiche&a=index">Gérer les affiches</a>&nbsp;|&nbsp;
+			<a href="?c=Affiche&a=add">Ajouter</a>
+		</td>
+	</tr>
+</table>
+
+<!--搜索表单-->
+<div style="padding:8px 5px;margin:8px 3px;background-color:#fefefe;text-align:center;">
+<form name="form1" method="POST" action="?c=Affiche&a=index">
+	<span style="padding:0px 5px;">Catégorie</span>
+	<select name="idTypeAffiche">
+		<option value="">Tous</option>
+		<{foreach $typesAffiches as $typesAffiche}>
+		<option value="<{$typesAffiche.idTypeAffiche}>">
+			<!--<{str_repeat('**',$typesAffiche.level)}>-->
+			<{$typesAffiche.nomTypeAffiche}>
+		</option>
+		<{/foreach}>
+	</select>
+	<span style="padding:0px 5px;">Titre</span>
+	<input type="text" name="keyword" />
+	<input type="submit" value="Rechercher" />
+	
+</form>
+</div>
+
+<!--文章列表-->
+<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="border">
+<tr class="title" align="center">
+        <td>IdAffiche</td>
+	<td>Titre</td>
+        <td>Description</td>
+        <td>Photo</td>
+	<td>Lieu</td>
+        <td>Auteur idUser</td>
+	<td>Type d'affiche</td>
+        <td>Option</td>
+	<!--
+        <td>ID</td>
+	<td>Catégotié</td>
+	<td>Titre</td>
+	<td>Auteur</td>
+	<td>Date de Publication</td>
+	<td>Option</td>
+  -->
+</tr>
+<{foreach $affiches as $affiche}>
+<tr class="tdbg" align="center">
+	<!--
+	<td><{$affiche.id}></td>
+	<td><{$affiche.classname}></td>
+	<td align="left">
+		<a target="_blank" href="#"><{$affiche.titre}></a>
+		<{if $affiche.top}>[<font color="red">Hot!</font>]<{/if}>
+	</td>
+	<td><{$affiche.username}></td>
+	<td><{$affiche.addate|date_format:'%Y-%m-%d %H:%M:%S'}></td>
+ -->
+        <td><{$affiche.idAffiche}></td>
+	<td><{$affiche.titre}></td>
+        <td><{$affiche.description}></td>
+         
+        <!--<td><a href="<{$affiche.photo}>"></a ></td>  -->
+      
+        <td><img src="<{$affiche.photo}>" width="100" height="100" alt=""/></td>
+        
+        <td><{$affiche.lieu}></td>
+        <td><{$affiche.idUser}></td>
+        <td><{$affiche.idTypeAffiche}></td>
+	<td>    <a href="?c=Commentaire&a=index&idAffiche=<{$affiche.idAffiche}>">Commentaires</a > | 
+		<a href="?a=edit&c=Affiche&idAffiche=<{$affiche.idAffiche}>">Modifier</a> | 
+		<a href="javascript:void(0)" onclick="confirmDel(<{$affiche.idAffiche}>)">Suprimer</a>
+	</td>
+</tr>
+<{/foreach}>
+
+<!--文章分页-->
+<tr class="tdbg">
+	<td colspan="7" align="center"><{$str}></td>
+</tr>
+</table>
+</body>
+</html>

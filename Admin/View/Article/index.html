@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="./Public/Admin/Css/public.css" rel="stylesheet" type="text/css" />
+<title>Article Management</title>
+<script type="text/javascript">
+// cofirmer de supprimer un idArticle
+function confirmDel(idArticle)
+{
+	
+	if(window.confirm("Vous voulez le supprimer?"))
+	{
+		location.href = "?c=Article&a=delete&idArticle="+idArticle;
+	}
+}
+</script>
+</head>
+
+<body>
+<!--导航栏-->
+
+
+
+<table width="100%" border="0" align="center" cellpadding="1" cellspacing="1" class="border">
+	<tr class="topbg"><td>Management</td></tr>
+	<tr class="tdbg">
+		<td height="30">&nbsp;&nbsp;
+			<a href="#">Management</a>&nbsp;|&nbsp;
+			<a href="#">Ajouter</a>
+		</td>
+	</tr>
+</table>
+
+<!--搜索表单-->
+<div style="padding:8px 5px;margin:8px 3px;background-color:#fefefe;text-align:center;">
+<form name="form1" method="POST" action="?c=Article&a=index">
+	<span style="padding:0px 5px;">Catégorie</span>
+	<select name="idCategorie">
+		<option value="">Tous</option>
+		<{foreach $categories as $categorie}>
+		<option value="<{$categorie.idCategorie}>">
+			<{str_repeat('**',$categorie.level)}>
+			<{$categorie.nomCategorie}>
+		</option>
+		<{/foreach}>
+	</select>
+	<span style="padding:0px 5px;">Titre</span>
+	<input type="text" name="keyword" />
+	<input type="submit" value="Rechercher" />
+	
+</form>
+</div>
+
+<!--文章列表-->
+<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="border">
+<tr class="title" align="center">
+        <td>Id</td>
+	<td>Titre</td>
+        <td>Contenu</td>
+	<td>Auteur</td>
+	<td>Option</td>
+	<!--
+        <td>ID</td>
+	<td>Catégotié</td>
+	<td>Titre</td>
+	<td>Auteur</td>
+	<td>Date de Publication</td>
+	<td>Option</td>
+  -->
+</tr>
+<{foreach $articles as $article}>
+<tr class="tdbg" align="center">
+	<!--
+	<td><{$article.id}></td>
+	<td><{$article.classname}></td>
+	<td align="left">
+		<a target="_blank" href="#"><{$article.title}></a>
+		<{if $article.top}>[<font color="red">Hot!</font>]<{/if}>
+	</td>
+	<td><{$article.username}></td>
+	<td><{$article.addate|date_format:'%Y-%m-%d %H:%M:%S'}></td>
+ -->
+        <td><{$article.idArticle}></td>
+	<td><{$article.titreArticle}></td>
+        <td><{$article.contenuArticle}></td>
+        <td><{$article.idUser}></td>
+	<td>       
+		<a href="?a=edit&c=Article&idArticle=<{$article.idArticle}>">Modifier</a> | 
+		<a href="javascript:void(0)" onclick="confirmDel(<{$article.idArticle}>)">Suprimer</a>
+	</td>
+</tr>
+<{/foreach}>
+
+<!--文章分页-->
+<tr class="tdbg">
+	<td colspan="7" align="center"><{$str}></td>
+</tr>
+</table>
+</body>
+</html>

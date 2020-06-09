@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> liste d'affiches</title>
+<style>
+table td {
+
+<<<<<<< HEAD
+    } 
+ 
+    .bgF {
+      background-image: url("https://vendenheim.fr/wp-content/uploads/2018/12/OBJETS-PERDU-TROUVE_vignette.jpg");
+      height: 100%;
+      width: 3000px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+
+h1 {
+
+color:
+
+}
+
+table {
+
+  margin-left: 200px;
+}
+
+static {
+  margin-top: 100px;
+  margin-left: 200px;
+=======
+border: 20px solid white;
+
+>>>>>>> d566f78c96880f41954bac3aeb1fa346e14179a5
+}
+</style>
+<link href="./Public/Home/Css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<link href="./Public/Home/Css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<!--web-fonts-->
+<link href='#css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+<!--js-->
+<script src="./Public/Home/Js/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }>
+</script>
+<meta name="keywords" content="My Charity Responsive web template, Bootstrap Web Templates, Flat Web Templates, AndriodCompatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="./Public/Home/Js/move-top.js"></script>
+<script type="text/javascript" src="./Public/Home/Js/easing.js"></script>
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+	</script>
+<!-- //end-smoth-scrolling -->
+</head>
+<body>
+<!--header start here-->
+<div class="mothergrid">
+	<div class="container">
+		<div class="header">
+			<div class="logo">
+			nom/logo de site
+				<!-- <a href="index.html"> <img src="./Public/Home/Js/logo.png" alt=""/> </a> -->
+			</div>
+			<span class="menu"> <img src="./Public/Home/Images/icon.png" alt=""/></span>
+			<div class="clear"> </div>
+			<div class="navg">
+				<ul class="res">
+				<li><a class="active" href="?c=Index&a=index">Home</a></li>
+					<li><a href="?c=Index&a=ProtectMyUT1">Protect My UT1</a></li>
+					<li><a href="?c=Index&a=FindMy">Find me</a></li>
+					
+					<li><a href="?c=Index&a=article">article</a></li>
+                                        <li><a class="active" href="?c=Index&a=evenement">Agenda</a></li>
+					<li><a href="?c=Index&a=Contactus">Contact us</a></li>
+					<li>&emsp;&emsp;&emsp;&emsp;</li>
+					<li><a href="?c=User&a=login">s'inscrire/se connecter</a></li>
+				</ul>
+				 <script>
+			                                                      $( "span.menu").click(function() {
+			                                                                                        $(  "ul.res" ).slideToggle("slow", function() {
+			                                                                                         // Animation complete.
+			                                                                                         });
+			                                                                                         });
+		                                                     </script>
+			</div>
+		<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<!--header end here-->
+<!--blog start here-->
+<div class="blog">
+	<div class="container">
+		<div class="blog-main">
+			<div class="blog-top">
+			<h1>Find My</h1>
+			<h3>permet de déclarer la perte d’un objet, sa catégorie, le lieu de la perte</br> et d’entrer en contact avec une personne le réclamant. </h3>
+
+			</div>
+			<div class="col-md-8 blog-left">
+			<h4>Aujourd'hui, 10 clés, 5 cartables,8 appareils électroniquesont sont cherché</h4>
+			</br>
+	<table >
+
+
+
+<{foreach $affiches as $affiche}>
+<tr><td>
+<a href="?c=Affiche&a=indexFindMy&idAffiche=<{$affiche.idAffiche}>">
+<img src="<{$affiche.photo}>" title="" height="230px" width="300px"></br>
+</a>
+</td>
+<td>
+<a href="?c=Affiche&a=indexFindMy&idAffiche=<{$affiche.idAffiche}>">
+<Strong>Retrouvé le 26-05-2020 à 11:20</strong></br>
+<p>Description: <{$affiche.description}></p>
+<p>Adresse:  <{$affiche.lieu}></p>
+<p>Telephone: 06 21 12 43 45</p>
+<p>Mail: JeanLuc@hotmail.fr</p>
+</a>
+</td></tr>
+<{/foreach}>
+
+</table>
+				 
+			 <div class="pag-nations">
+					<ul class="p_n-list">
+						<{$str}>
+						
+					</ul>
+				</div>
+			</div>
+			
+			
+			<div class="col-md-4 blog-right"> 
+			<div class="sear">
+			<a class="Nouveauxobjets" href="?c=Affiche&a=addFindMy">Nouveaux objets perdus</a>			
+					<!-- <input type="text" value="SEARCH.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'SEARCH..';}"/>
+					<input type="submit" value=""> -->
+			</div>
+                            
+                            
+                            
+                        <h3> CATEGORIES</h3>    
+                       	<{foreach $typesAffiches as $TypesAffiche}>
+			<ul class="blog-rig-list">
+			
+				<li>
+				<a href="?c=Index&a=FindMy&idTypeAffiche=<{$TypesAffiche.idTypeAffiche }>">
+					
+				 <{$TypesAffiche.nomTypeAffiche}></a>
+				
+			</li>
+					
+				
+			</ul>
+			<{/foreach}>     
+       	
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+</div>
+
+<!--blog end here-->
+<!--footer start here-->
+
+<!--/footer end here-->
+<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+</body>
+</html>

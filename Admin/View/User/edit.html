@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="./Public/Admin/Css/public.css" rel="stylesheet" type="text/css" />
+<title>Edit</title>
+</head>
+
+<body>
+<table width="100%" border="0" align="center" cellpadding="1" cellspacing="1" class="border">
+	<tr class="topbg"><td>Management d'utlisateur</td></tr>
+	<tr class="tdbg"><td height="30">&nbsp;&nbsp;
+	<a href="?c=User&a=index">Managemement</a>&nbsp;|&nbsp;
+	<a href="?c=User&a=add">Ajouter</a></td></tr>
+</table>
+<br />
+<form id="form1" name="form1" method="post" action="?c=User&a=update">
+<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="border">
+	<tr class="title"><td colspan="2" align="center">Modifier</td></tr>
+    <tr class="tdbg">
+		<td width="15%" height="30" align="right">IdUser:</td>
+		<td width="85%"><font color="#0000ff"><{$user.idUser}></font></td>
+    </tr>
+    <input name="idUser" type="text" style="display:none" value="<{$user.idUser}>"/>
+     <tr class="tdbg">
+		<td height="30" align="right">Mail:</td>
+		<td>
+			<input name="mailUser" type="mail" value="<{$user.mailUser}>" size="20" />
+			<font color="#FF0000">*</font>
+			<font color="#666666">votre mail</font>
+		</td>
+    </tr>
+    <tr class="tdbg">
+		<td height="30" align="right">Mot de pass:</td>
+		<td>
+			<input name="password" type="password" size="20" maxlength="15" />
+			<font color="#FF0000">*</font>
+			<font color="#666666">Length:5-15, chiffres ou lettres, laissez vide si vous ne voulez pas le changer</font>
+		</td>
+    </tr>
+    <tr class="tdbg">
+		<td height="30" align="right">Confirmez mot de pass:</td>
+		<td>
+			<input name="confirmpwd" type="password" maxlength="15" />
+			<font color="#FF0000">*</font>
+			<font color="#666666">Soyez cohérent avec la première fois</font>
+		</td>
+    </tr>
+    <tr class="tdbg">
+		<td height="30" align="right">Nom:</td>
+		<td>
+			<input name="nomUser" type="text" value="<{$user.nomUser}>" size="20" />
+			<font color="#FF0000">*</font>
+			<font color="#666666">votre nom réel</font>
+		</td>
+    </tr>
+    <tr class="tdbg">
+		<td height="30" align="right">Prenom:</td>
+		<td>
+			<input name="prenomUser" type="text" value="<{$user.prenomUser}>" size="20" />
+			<font color="#FF0000">*</font>
+			<font color="#666666">ex: Dimitri</font>
+		</td>
+    </tr>
+    <tr class="tdbg">
+		<td height="30" align="right">Etat:</td>
+		<td>
+			<input type="radio" id="etat" name="etat" value="1"<{if $user.etat==1}> checked<{/if}>>Normal
+			<input type="radio" id="etat" name="etat" value="0"<{if $user.etat==0}> checked<{/if}> >Suspension
+		</td>
+	</tr>
+    <tr class="tdbg">
+		<td height="30" align="right">Poste</td>
+		<td>
+			<select name="idTypeUser">
+				<option value="1"<{if $user.idTypeUser==1}> selected<{/if}>>User</option>
+				<option value="2"<{if $user.idTypeUser==2}> selected<{/if}>>Prof</option>
+                                <option value="3"<{if $user.idTypeUser==3}> selected<{/if}>>Admin</option>
+                                <option value="4"<{if $user.idTypeUser==4}> selected<{/if}>>Admin PUT1</option>
+			</select>
+		</td>
+    </tr>
+    <tr class="tdbg">
+		<td height="30" align="right">&nbsp;</td>
+		<td>
+			<input type="submit" value="Modifier" />
+			<input type="hidden" name="id" value="<{$user.idUser}>">
+			<input type="button" onclick="history.go(-1)" value="Retour" />
+		</td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

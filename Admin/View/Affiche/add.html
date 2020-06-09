@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="./Public/Admin/Css/public.css" rel="stylesheet" type="text/css" />
+<title>Affiche Management</title>
+<script charset="utf-8" src="./Public/Admin/Js/ckeditor/ckeditor.js">
+	
+</script>
+ 
+
+
+</head>
+
+<body>
+<table width="100%" border="0" align="center" cellpadding="1" cellspacing="1" class="border">
+	<tr class="topbg"><td>Gérer les affiches</td></tr>
+	<tr class="tdbg">
+		<td height="30">&nbsp;&nbsp;
+			<a href="?c=Affiche&a=index">Gérer les affiches</a>&nbsp;|&nbsp;
+			<a href="?c=Affiche&a=add">Ajouter</a>
+		</td>
+	</tr>
+</table>
+<br />
+<form name="form1" method="post" action="?c=Affiche&a=insert" enctype="multipart/form-data">
+<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="border">
+	<tr class="title"><td colspan="2" align="center">Ajouter</td></tr>
+	<tr class="tdbg">
+		<td width="100" height="30" align="right">TypeAffiche</td>
+	<td>
+		<select name="idTypeAffiche">
+			
+			<{foreach $typesAffiches as $typesAffiche}>
+			<option value="<{$typesAffiche.idTypeAffiche}>">
+				
+				<{$typesAffiche.nomTypeAffiche}>
+			</option>
+			<{/foreach}>
+		</select>
+	</td>
+	</tr>
+        <tr class="tdbg">
+		<td height="30" align="right">Titre:</td>
+		<td><input name="titre" type="text" size="90" maxlength="200" /></td>
+	</tr>
+	<tr class="tdbg">
+		<td height="30" align="right">Lieu:</td>
+		<td><input name="lieu" type="text" size="90" maxlength="200" /></td>
+	</tr>
+	<tr class="tdbg">
+		
+		<td>
+			<span style="padding-left:20px;">En top:</span>
+			<input name="top" type="checkbox" value="1" />
+		</td>
+	</tr>
+	<tr class="tdbg">
+		<td height="30" align="right">Description:</td>
+		<td><textarea  id="editor" name="description" style="width:95%;height:300px;"></textarea></td>
+	</tr>
+	<tr class="tdbg">
+		<td height="30" align="right">Photo:</td>
+		<td><input name="photo" type="file" size="90" maxlength="200" /></td>
+      
+	</tr>
+	<tr class="tdbg">
+		<td height="30" align="right">&nbsp;</td>
+		<td>
+			<input type="submit" value="Ajouter" />
+			<input type="button" onclick="history.go(-1)" value="Retour" />
+		</td>
+	</tr>
+</table>
+</form>
+
+<script>
+    CKEDITOR.replace( 'editor' );
+</script>
+
+</body>
+</html>

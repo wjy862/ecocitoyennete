@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="./Public/Admin/Css/public.css" rel="stylesheet" type="text/css" />
+<title>Management d'utlisateur</title>
+<script type="text/javascript">
+// cofirmer de supprimer un idUser
+function confirmDel(idUser)
+{
+	
+	if(window.confirm("Vous voulez le supprimer?"))
+	{
+		location.href = "?c=User&a=delete&idUser="+idUser;
+	}
+}
+</script>
+</head>
+
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0" oncontextmenu="self.event.returnValue=false">
+
+<table width="100%" border="0" align="center" cellpadding="1" cellspacing="1" class="border">
+	<tr class="topbg"><td>Management</td></tr>
+	<tr class="tdbg">
+		<td height="30">&nbsp;&nbsp;
+			<a href="?c=User&a=index">Management</a>&nbsp;|&nbsp;
+			<a href="?c=User&a=add">Ajouter</a>
+		</td>
+	</tr>
+</table>
+    <a href="../../../../../../M1 S2/Chef d'oeuvre ou stage/conception/html/admin/administrateur/top.html"></a>
+<br />
+<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="border">
+	<tr class="title">
+                <td align="center">Id</td>
+		<td align="center">Nom</td>
+		<td align="center">Prenom</td>
+		<td align="center">mail</td>
+		<td align="center">typeUser</td>
+                <td align="center">etat</td>
+                <td align="center">Option</td>
+            <!--
+		<td align="center">Id</td>
+		<td align="center">Surnom</td>
+		<td align="center">Nom</td>
+		<td align="center">Tel</td>
+		<td align="center">Poste</td>
+		<td align="center">IP</td>
+		<td align="center">Date de connection</td>
+		<td align="center">Nombre de connection</td>
+		<td align="center">Status</td>
+		<td align="center">Option</td>
+            -->
+	</tr>
+	<{foreach $users as $user}>
+	<tr class="tdbg">
+		<td align="center"><{$user.idUser}></td>
+		<td align="center"><{$user.nomUser}></td>
+		<td align="center"><{$user.prenomUser}></td>
+		<td align="center"><{$user.mailUser}></td>
+                <td align="center"><{$user.idTypeUser}></td>
+                <td align="center"><{$user.etat}></td>
+                <!--
+		<td align="center">
+			<{if $user.role}><font color='red'>Super</font><{else}>Normal<{/if}>
+		</td>
+		<td align="center"><{$user.last_login_ip}></td>
+		<td align="center"><{$user.addate|date_format:'%Y-%m-%d %H:%M:%S'}></td>
+		<td align="center"><{$user.login_times}></td>
+		<td align="center">
+			<{if $user.status}>Normal<{else}><font color='red'>Suspension</font><{/if}>
+		</td>
+                -->
+		<td align="center">
+			<a href="?c=User&a=edit&idUser=<{$user.idUser}>">Modifier</a> | 
+			<a href="javascript:void(0)" onClick="confirmDel(<{$user.idUser}>)">Supprimer</a>
+		</td>
+	</tr>
+	<{/foreach}>
+
+</body>
+</html>

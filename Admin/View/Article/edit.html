@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<title>Mangement d'article</title>
+<link href="./Public/Admin/Css/public.css" type="text/css" rel="stylesheet" />
+<script charset="utf-8" src="./Public/Admin/Js/editor/kindeditor-min.js"></script>
+<script charset="utf-8" src="./Public/Admin/Js/editor/lang/zh_CN.js"></script>
+<script>
+//引入KindEditor在线编辑器
+var editor;
+KindEditor.ready(function(K) {
+	editor = K.create('textarea[name="content"]', {
+		allowFileManager : true
+	});
+});
+</script>
+</head>
+
+<body>
+<table width="100%" border="0" align="center" cellpadding="1" cellspacing="1" class="border">
+	<tr class="topbg"><td>Mangement</td></tr>
+	<tr class="tdbg">
+		<td height="30">&nbsp;&nbsp;
+			<a href="#">Management</a>&nbsp;|&nbsp;
+			<a href="#">Ajouter</a>
+		</td>
+	</tr>
+</table>
+<br />
+<form name="form1" method="post" action="?c=Article&a=update">
+<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="border">
+	<tr class="title"><td colspan="6" align="center">Modifier</td></tr>
+	<tr class="tdbg">
+		<td width="17%" height="30" align="right">Catégorie:</td>
+		<td>
+			<select name="idCategorie">
+						
+				<option value="0">Null</option>
+				<{foreach $categories as $Categorie}>
+				<option value="<{$Categorie.idCategorie}>"
+					<{if $Categorie.idCategorie==$articles.idCategorie }>
+					selected
+					<{/if}>
+
+				>
+				<{str_repeat('**',$Categorie.level)}><{$Categorie.nomCategorie}>
+					
+				</option>
+				<{/foreach}>
+			</select>     
+		</td>
+	</tr>
+        
+	<tr class="tdbg">
+		<td height="30" align="right">Titre:</td>
+		<td colspan="5"><input name="titreArticle" type="text" size="90" maxlength="200"  value="<{$articles.titreArticle}>"/></td>
+	</tr>
+
+	<tr class="tdbg">
+		<td height="30" align="right">Contenu:</td>
+		<td><input type="text" name="contenuArticle" style="width:95%;height:300px;" value="<{$articles.contenuArticle}>"></td>
+	</tr>
+	<tr class="tdbg">
+		<td height="30" align="right">&nbsp;</td>
+		<td colspan="5">
+			<input type="hidden" name="idArticle" value="<{$articles.idArticle}>" />
+
+			<input type="submit" value="Modifier" />
+
+			<input type="button" onclick="history.go(-1)" value="Retour" />
+		</td>
+	</tr>
+</table>
+</form>
+</body>
+</html>
