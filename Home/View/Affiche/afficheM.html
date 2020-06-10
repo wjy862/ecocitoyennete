@@ -75,7 +75,7 @@
 
         <tr class="tdbg">
 		<td height="30" align="right"><label for="Lieu">Lieu</label></td>
-		<td><input name="lieu" type="text" size="90" maxlength="200" value="<{$affiches.lieu}>"/></td>
+		<td><input name="lieu" type="text" size="90" maxlength="200" value="<{$affiches.lieu}>" placeholder="Ecrivez le lieu" /></td>
 	</tr>
 	<tr class="tdbg">	
 		<td height="30" align="right">
@@ -85,7 +85,7 @@
 	</tr>
 	<tr class="tdbg">
 		<td height="30" align="right"><label for="Description">Description</label>
-		<td><input type="text" name="description" style="width:95%;height:300px;" value="<{$affiches.description}>"/></textarea></td>
+		<td><input type="text" name="description" style="width:95%;height:300px;" value="<{$affiches.description}>" placeholder="Ecrivez la description" /></textarea></td>
 	</tr>
         <tr class="tdbg">
 		<td height="30" align="right"><label for="Photo">Photo</label></td>
@@ -101,7 +101,9 @@
 			<input type="button" class="boutton"  onclick="history.go(-1)" value="Retour" />
 		</td>
 	</tr>
+
 </table>
+
 </form>
 
 
