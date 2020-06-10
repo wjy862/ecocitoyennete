@@ -25,35 +25,6 @@
 			});
 	</script>
     <meta charset="utf-8">
-    <title></title> 
-
-<style>
-
-h2 {
-  text-align: center;
-
-}
-
-.bg2 {
-  background-image: url("https://img.over-blog-kiwi.com/0/93/15/67/20170113/ob_257772_dsc-6367.jpg");
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-body, html {
-  height: 100%;
-  margin: 0;
-}
-
-.move {
-
-  margin-left: 10px;
-}
-</style>
-
-
   </head>
 
   <body>
@@ -96,12 +67,13 @@ body, html {
 
 <br/>
 <form method="post" action="?c=Affiche&a=insert" enctype="multipart/form-data">
-<p><input type = "radio" name="titre" value="Arsenal"> Arsenal
-<input type = "radio" name="titre" value="Manufacture"> Manufacture
-<input type = "radio" name="titre" value="Ancienne faculté"> Ancienne faculté </p>
 
+   <label for="Site">Sur quel site de l'université êtes vous ?</label> <br>
+    <input type = "radio" name="titre" value="1" checked> Arsenal
+<input type = "radio" name="titre" value="1"> Manufacture
+<input type = "radio" name="titre" value="1"> Ancienne faculté </p>
 <br/>
-<p>Description du lieu de objet perdu:<input type="text" name="lieu" /></p>
+<label for="Description">Description du lieu de objet perdu:<input type="text" name="lieu" /></p>
 <p>Type d'objet
 <select name="idTypeAffiche">
   <option  value ="2">sac</option>
@@ -121,7 +93,7 @@ body, html {
 
 <p>Photo:<input type="file" name="photo" /></p>
 
-<p><input type="submit" value="Valider" ></p>
+<p><input type="submit" class="boutton" value="Valider" ></p>
 </form>
 
 
