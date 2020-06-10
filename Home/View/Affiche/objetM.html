@@ -1,11 +1,14 @@
 <head>
 <title> Modifier rapport</title>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="./Public/Home/Css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<link href="./Public/Home/Css/style.css" rel="stylesheet" type="text/css" media="all"/>
+
 <!--web-fonts-->
 <link href='#css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 <!--js-->
 <script src="js/jquery.min.js"></script>
+
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }>
@@ -62,17 +65,22 @@
 <Strong>Retrouvé le 26-05-2020 à 11:20</strong></br>
 
 <form method="post" action=".\obejtMValide.html">
-<p>Photo:<input type="file" name="PhotoM" /></p>
-<p>Description: trousse marron</p>
-<p>Description:<input type="text" name="DescriptionM" /></p>
-<p>Adresse: 135 avenue des minimes</p>
-<p>Adresse:<input type="text" name="AdresseM" /></p>
-<p>Telephone: 06 21 12 43 45</p>
-<p>Telephone:<input type="text" name="TelephoneM" /></p>
-<p>Mail: JeanLuc@hotmail.fr</p>
-<p>Mail:<input type="text" name="MailM" /></p>
-<p><input type="submit" value="Modifier" ></p>
+<label for="Photo">Photo:</label>
+<p><input type="file" name="PhotoM" /></p>
+<p><strong>Description: trousse marron</strong></p>
+<label for="Description">Description:</label>
+<p><input type="text" name="DescriptionM" /></p>
+<p><strong>Adresse: 135 avenue des minimes</strong></p>
+<label for="Adresse">Adresse:</label>
+<p><input type="text" name="AdresseM" /></p>
+<p><strong>Telephone: 06 21 12 43 45</strong></p>
+<label for="Telephone">Telephone:</label>
+<input type="text" name="TelephoneM" /></p>
+<p><strong>Mail: JeanLuc@hotmail.fr</strong></p>
+<label for="Mail">Mail:</label>
+<input type="text" name="MailM" /></p>
+<p><input type="submit" class="boutton" value="Modifier" ></p>
 </form>
 
-<a href="objetSValide.html"><button >Supprimer l'affiche</button></a>
+<a href="objetSValide.html"><button class="boutton">Supprimer l'affiche</button></a>
 </body>
