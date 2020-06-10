@@ -1,5 +1,6 @@
 <head>
 <title> Modifier affiche</title>
+<meta charset="utf-8">
 <link href="./Public/Home/Css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 <link href="./Public/Home/Css/style.css" rel="stylesheet" type="text/css" media="all"/>
 <!--web-fonts-->
@@ -60,9 +61,11 @@
 
 
 
-<h2>Modification</h2>
+<h1>Modification</h1>
+<br>
 <form method="post" action="?c=affiche&a=update" enctype="multipart/form-data">
-    <p><input type = "radio" name="titre" value="1" checked> Arsenal
+    <label for="Site">Sur quel site de l'université êtes vous ?</label> <br>
+    <input type = "radio" name="titre" value="1" checked> Arsenal
 <input type = "radio" name="titre" value="1"> Manufacture
 <input type = "radio" name="titre" value="1"> Ancienne faculté </p>
 
@@ -71,31 +74,31 @@
         <input name="idAffiche" type="text" style="display:none" value="<{$affiches.idAffiche}>"/>
 
         <tr class="tdbg">
-		<td height="30" align="right">Lieu:</td>
+		<td height="30" align="right"><label for="Lieu">Lieu</label></td>
 		<td><input name="lieu" type="text" size="90" maxlength="200" value="<{$affiches.lieu}>"/></td>
 	</tr>
 	<tr class="tdbg">	
-		<td>
-			<span style="padding-left:20px;">Top:</span>
+		<td height="30" align="right">
+			<label for="Top">Top</label>
 			<input name="top" type="checkbox" value="1" />
 		</td>
 	</tr>
 	<tr class="tdbg">
-		<td height="30" align="right">Description:</td>
+		<td height="30" align="right"><label for="Description">Description</label>
 		<td><input type="text" name="description" style="width:95%;height:300px;" value="<{$affiches.description}>"/></textarea></td>
 	</tr>
         <tr class="tdbg">
-		<td height="30" align="right">Photo:</td>
+		<td height="30" align="right"><label for="Photo">Photo</label></td>
 		<td><input name="photo" type="file" size="90" maxlength="200" /></td>
 	</tr>
 	<tr class="tdbg">
 		<td height="30" align="right">&nbsp;</td>
 		<td colspan="5">
-			<input type="hidden" name="id" value="<{$affiches.id}>" />
+			<input type="hidden" class="boutton" name="id" value="<{$affiches.id}>" />
 
-			<input type="submit" value="Modifier" />
+			<input type="submit" class="boutton" value="Modifier" />
 
-			<input type="button" onclick="history.go(-1)" value="Retour" />
+			<input type="button" class="boutton"  onclick="history.go(-1)" value="Retour" />
 		</td>
 	</tr>
 </table>
