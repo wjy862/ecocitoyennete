@@ -35,15 +35,16 @@
 			<div class="clear"> </div>
 			<div class="navg">
 				<ul class="res">
-					<li><a  href="index.html">Home</a></li>
-					<li><a href="ProtectMyUT1.html">Protect My UT1</a></li>
-					<li><a href="FindMy.html">Find me</a></li>
+				<li><a  href="?c=Index&a=index">Home</a></li>
+					<li><a href="?c=Index&a=ProtectMyUT1">Protect My UT1</a></li>
+					<li><a href="?c=Index&a=FindMy">Find me</a></li>
 				
-					<li><a  href="article.html">Article</a></li>
-					<li><a  href="evenement.html">Agenda</a></li>
-					<li><a href="Contactus.html">Contact us</a></li>
+					<li><a href="?c=Index&a=article">article</a></li>
+                                          <li><a href="?c=Index&a=evenement">Agenda</a></li>
+					<li><a href="?c=Index&a=Contactus">Contact us</a></li>
 					<li>&emsp;&emsp;&emsp;&emsp;</li>
-					<li><a href="Connecter.html">s'inscrire/se connecter</a></li>
+					 <{$infoUser}>
+                                        <li><a href="?c=User&a=logout" ><img style="border:none;" src="./Public/Admin/Images/tuichu.gif"></a></li>
 				</ul>
 				 <script>
 			                                                      $( "span.menu").click(function() {

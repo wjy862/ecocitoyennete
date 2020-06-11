@@ -32,7 +32,7 @@ function confirmDel(idCategorie)
 <tr class="title" align="center">
 	<td>ID</td>
 	<td>Nom de Catégorie</td>
-	<td>Ordre</td>
+	<!--<td>Ordre</td>-->
 	<td>Nombre d'article</td>
 	<td>Option</td>
 </tr>
@@ -40,8 +40,8 @@ function confirmDel(idCategorie)
 <tr class="tdbg" align="center">
 	<td><{$categorie.idCategorie}></td>
 	<td align="left"> <{str_repeat('##',$categorie.level)}> <{$categorie.nomCategorie}></td>
-	<!--<td><{$categorie.orderby}></td>-->
-	<td>350</td>
+	<td><{$categorie.nombreArticle}></td>
+	<!--<td>350</td>-->
 	<td>
 		
 		<a href="?c=Categorie&a=edit&idCategorie=<{$categorie.idCategorie}>">Modifier</a> | 

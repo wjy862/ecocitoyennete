@@ -9,7 +9,7 @@ class AfficheController extends BaseController
  
 	public function indexProtect()
 	{       
-    
+                $infoUser=$this->connectezVous();
                 // rechercher des affiches
                     //condition de recherche
 		$where="3>1 ";
@@ -24,8 +24,7 @@ class AfficheController extends BaseController
                 }else{
                    //$where.=" and 3<1 ";
                 }
-                  
-                
+
 		// pages 
 		$pagesize=3;  
 		$page=isset($_GET['page']) ? $_GET['page'] :1;
@@ -48,6 +47,7 @@ class AfficheController extends BaseController
 		//smarty afficher et assign valeurs
 		$this->smarty->assign(array('affiches'=>$affiches,
 							'commentaires'=>$commentaires,
+                                                        'infoUser'=>$infoUser,
 							'str'=>$str));
 		
 		$this->smarty->display('./Home/View/Affiche/PNR.html');
@@ -55,6 +55,7 @@ class AfficheController extends BaseController
         
         
         	public function indexFindMy(){
+                    $infoUser=$this->connectezVous();
                     	//subtree classfier
 		//$typesAffiches=TypesAfficheModel::getInstance()->typesAffichelist(TypesAfficheModel::getInstance()->fetchAll("order by idTypeAffiche asc"));
                 $typesAffiches =TypesAfficheModel::getInstance()->fetchAll("order by idTypeAffiche asc");
@@ -86,6 +87,7 @@ class AfficheController extends BaseController
 		//smarty afficher et assign valeurs
 		$this->smarty->assign(array('affiches'=>$affiches,
 							'typesAffiches'=>$typesAffiches,
+                                                        'infoUser'=>$infoUser,
 							'str'=>$str));
 		
 		$this->smarty->display('./Home/View/Affiche/objet.html');
@@ -95,8 +97,11 @@ class AfficheController extends BaseController
             //afficher la page add.html
 	public function addProtect()
 	{
+                $this->denyAccess();
+                 $infoUser=$this->connectezVous();
 		//$typesAffiches=TypesAfficheModel::getInstance()->typesAffichelist(TypesAfficheModel::getInstance()->fetchAll("order by idTypeAffiche asc"));
                 $typesAffiches =TypesAfficheModel::getInstance()->fetchAll("order by idTypeAffiche asc");
+               $this->smarty->assign('infoUser',$infoUser);
 		$this->smarty->assign("typesAffiches",$typesAffiches);
 		$this->smarty->display('Nouveauxproblemes.html');
 	}
@@ -105,14 +110,18 @@ class AfficheController extends BaseController
      //afficher la page add.html
 	public function addFindMy()
 	{
+                $this->denyAccess();
+                $infoUser=$this->connectezVous();
 		//$typesAffiches=TypesAfficheModel::getInstance()->typesAffichelist(TypesAfficheModel::getInstance()->fetchAll("order by idTypeAffiche asc"));
                 $typesAffiches =TypesAfficheModel::getInstance()->fetchAll("order by idTypeAffiche asc");
+                $this->smarty->assign('infoUser',$infoUser);
 		$this->smarty->assign("typesAffiches",$typesAffiches);
 		$this->smarty->display('Nouveauxobjets.html');
 	}
 //insere une ligne des données
 	public function insert()
 	{
+                $this->denyAccess();
 		$data['idUser']= $_SESSION['idUser'];
 		$data['idTypeAffiche']= $_POST['idTypeAffiche'];
 		//$data['titre']= $_POST['titre'];
@@ -149,7 +158,7 @@ class AfficheController extends BaseController
 
 	public function delete()
 	{
-		
+		$this->denyAccess();
 		//supprimer quelle ligne
 		$id = $_GET['idAffiche'];
                   $idUser= $_SESSION['idUser'];
@@ -167,10 +176,12 @@ class AfficheController extends BaseController
 	PUBLIC FUNCTION editProtect()
 	{
 		$this->denyAccess();
+                $infoUser=$this->connectezVous();
 		$id = $_GET['idAffiche'];
 		$affiches = AfficheModel::getInstance()->fetchOne("idAffiche={$id}");
                 $typesAffiches =TypesAfficheModel::getInstance()->fetchAll("order by idTypeAffiche asc");
 		//$typesAffiches=TypesAfficheModel::getInstance()->typesAffichelist(TypesAfficheModel::getInstance()->fetchAll("order by idTypeAffiche asc"));
+                  $this->smarty->assign('infoUser',$infoUser);
 		$this->smarty->assign("typesAffiches",$typesAffiches);
 		$this->smarty->assign("affiches",$affiches);
 		$this->smarty->display("afficheM.html");
@@ -179,10 +190,12 @@ class AfficheController extends BaseController
         PUBLIC FUNCTION editFindMy()
 	{
 		$this->denyAccess();
+                $infoUser=$this->connectezVous();
 		$id = $_GET['idAffiche'];
 		$affiches = AfficheModel::getInstance()->fetchOne("idAffiche={$id}");
                 $typesAffiches =TypesAfficheModel::getInstance()->fetchAll("order by idTypeAffiche asc");
 		//$typesAffiches=TypesAfficheModel::getInstance()->typesAffichelist(TypesAfficheModel::getInstance()->fetchAll("order by idTypeAffiche asc"));
+                  $this->smarty->assign('infoUser',$infoUser);
 		$this->smarty->assign("typesAffiches",$typesAffiches);
 		$this->smarty->assign("affiches",$affiches);
 		$this->smarty->display("afficheM.html");
@@ -190,6 +203,7 @@ class AfficheController extends BaseController
 
 	public function update()
 	{
+                $this->denyAccess();
 		$id=$_POST['idAffiche'];
 		$data['idUser']= $_SESSION['idUser'];
 		//$data['idTypeAffiche']= $_POST['idTypeAffiche'];

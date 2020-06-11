@@ -2,6 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/leowj/ecocitoyennete/Home/Controller/IndexController.class.php</file>
+            <file>file:/C:/Users/leowj/ecocitoyennete/Home/Controller/ArticleController.class.php</file>
+            <file>file:/C:/Users/leowj/ecocitoyennete/Home/View/Affiche/Nouveauxobjets.html</file>
+            <file>file:/C:/Users/leowj/ecocitoyennete/Home/View/Index/index.html</file>
+            <file>file:/C:/Users/leowj/ecocitoyennete/Admin/View/Affiche/index.html</file>
+            <file>file:/C:/Users/leowj/ecocitoyennete/Home/View/Index/ProtectMyUT1.html</file>
+            <file>file:/C:/Users/leowj/ecocitoyennete/Home/View/Affiche/Nouveauxproblemes.html</file>
+            <file>file:/C:/Users/leowj/ecocitoyennete/Admin/Controller/ArticleController.class.php</file>
+            <file>file:/C:/Users/leowj/ecocitoyennete/Home/Controller/UserController.class.php</file>
+        </group>
     </open-files>
 </project-private>

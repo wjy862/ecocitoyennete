@@ -6,7 +6,9 @@ use \Home\Model\CategorieModel;
 class ArticleController extends BaseController
 {
 	public function index() 
-	{
+	{   
+            $infoUser=$this->connectezVous();
+                $this->smarty->assign('infoUser',$infoUser);
 		//subtree classfier
 		$categories=CategorieModel::getInstance()->categorielist(CategorieModel::getInstance()->fetchAll("order by idCategorie asc"));
 
@@ -44,6 +46,8 @@ class ArticleController extends BaseController
         
         public function indexEvenement() 
 	{
+                 $infoUser=$this->connectezVous();
+                $this->smarty->assign('infoUser',$infoUser);
 		//subtree classfier
 		$categories=CategorieModel::getInstance()->categorielist(CategorieModel::getInstance()->fetchAll("order by idCategorie asc"));
 
@@ -82,7 +86,10 @@ class ArticleController extends BaseController
         
      //afficher la page add.html
 	public function add()
-	{
+	{       
+                $infoUser=$this->connectezVous();
+                $this->smarty->assign('infoUser',$infoUser);
+                 $this->denyAccess();
 		$categories=CategorieModel::getInstance()->categorielist(CategorieModel::getInstance()->fetchAll("order by idCategorie asc"));
 		$this->smarty->assign("categories",$categories);
 		$this->smarty->display('articleADD.html');
@@ -90,6 +97,7 @@ class ArticleController extends BaseController
 //insere une ligne des données
 	public function insert()
 	{
+                 $this->denyAccess();
 		$data['idUser']= $_SESSION['idUser'];
 		$data['idCategorie']= $_POST['idCategorie'];
 		//$data['titreArticle']= $_POST['titreArticle'];
@@ -112,7 +120,7 @@ class ArticleController extends BaseController
 
 	public function delete()
 	{
-		
+		 $this->denyAccess();
 		//supprimer quelle ligne
 		$idArticle = $_GET['idArticle'];
                 $idUser= $_SESSION['idUser'];
@@ -129,6 +137,8 @@ class ArticleController extends BaseController
 
 	PUBLIC FUNCTION edit()
 	{
+                $infoUser=$this->connectezVous();
+                $this->smarty->assign('infoUser',$infoUser);
 		$this->denyAccess();
 		$id=$_GET['idArticle'];
 		$articles = ArticleModel::getInstance()->fetchOne("idArticle={$id}");
@@ -139,16 +149,14 @@ class ArticleController extends BaseController
 	}
 
 	public function update()
-	{
+	{       
+                $this->denyAccess();
 		$id=$_POST['idArticle'];
 		$data['idUser']= $_SESSION['idUser'];
 		$data['idCategorie']= $_POST['idCategorie'];
                 $data['titreArticle'] = filter_input(INPUT_POST, 'titreArticle', FILTER_SANITIZE_SPECIAL_CHARS);
                 $data['contenuArticle'] = filter_input(INPUT_POST, 'contenuArticle', FILTER_SANITIZE_SPECIAL_CHARS);
-		//$data['titreArticle']= $_POST['titreArticle'];
-                //$data['contenuArticle']= $_POST['contenuArticle'];
-		//$data['idTypeManipulation']= $_POST['idTypeManipulation'];
-		//$data['top']= isset($_POST['top']) ? 1:0;
+		
 		//$data['dateArt']= time();
 
 		if (ArticleModel::getInstance()->update($data,$id))

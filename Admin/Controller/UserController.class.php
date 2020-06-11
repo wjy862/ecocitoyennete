@@ -181,7 +181,7 @@ class UserController extends BaseController
 		$_SESSION['idUser']	= $user['idUser'];
 		//$_SESSION['mailUser']	= $mailUser;
                 //$_SESSION['uid']	= $user['idUser'];
-		$_SESSION['username']	= $mailUser;
+		$_SESSION['mailUser']	= $mailUser;
 		
 		header("location:./admin.php");
 	}

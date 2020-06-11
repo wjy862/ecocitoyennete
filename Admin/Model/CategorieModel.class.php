@@ -10,18 +10,21 @@ class CategorieModel extends BaseModel
 	{
 		//$arrs donnes original,$level menu level,$parentId menu parent id
 		static $categories=array(); 
- 
+                
 		//loop donnes original
 		foreach ($arrs as  $value) 
 		{
-			//chercher menu suivant($parentId)
+			//chercher menu suivant($parentId) et son nombre d'article
 			if($value['parentId']==$parentId)
 			{
 				$value['level']=$level;
+                    
+                                $where="idCategorie=".$value['idCategorie'];
+                                $value['nombreArticle']=$this->rowCountArticle($where);
+                                
 				$categories[]=$value;
 				//manupuler recuersivite
 				$this->categorielist($arrs,$level+1,$value['idCategorie']);
-
 			}
 		}
 		return $categories;
@@ -92,5 +95,15 @@ class CategorieModel extends BaseModel
 		$sql = "UPDATE {$this->table} SET {$str} WHERE idCategorie={$id}";
 		//return un boollen
 		return $this->pdo->exec($sql);
+	}
+        
+        	public function rowCountArticle($where="2>1")
+	{
+                    
+		//sql
+		$sql = "SELECT * FROM articles WHERE {$where}";
+		//return pdo rowcount
+               
+		return $this->pdo->rowCount($sql);
 	}
 }

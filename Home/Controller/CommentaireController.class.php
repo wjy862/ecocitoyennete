@@ -6,7 +6,9 @@ use \Home\Model\AfficheModel;
 class commentaireController extends BaseController
 {
 	public function index()
-	{
+	{      
+                $infoUser=$this->connectezVous();
+                $this->smarty->assign('infoUser',$infoUser);
 		//subtree classfier
 		//$affiches=AfficheModel::getInstance()->typesAffichelist(AfficheModel::getInstance()->fetchAll("order by idAffiche asc"));
                 $affiches =AfficheModel::getInstance()->fetchAll("order by idAffiche asc");
@@ -39,17 +41,11 @@ class commentaireController extends BaseController
 		
 		$this->smarty->display('./Home/View/Index/index.html');
 	}
-     //afficher la page add.html
-	public function add()
-	{
-		//$affiches=AfficheModel::getInstance()->typesAffichelist(AfficheModel::getInstance()->fetchAll("order by idAffiche asc"));
-                $affiches =AfficheModel::getInstance()->fetchAll("order by idAffiche asc");
-		$this->smarty->assign("affiches",$affiches);
-		$this->smarty->display('add.html');
-	}
+
 //insere une ligne des données
 	public function insert()
 	{
+                 $this->denyAccess();
 		 /*
 		$data['idUser']= $_SESSION['uid'];
 		$data['idCommentaire']= $_POST['idCommentaire'];
@@ -78,7 +74,7 @@ class commentaireController extends BaseController
 
 	public function delete()
 	{
-		
+		 $this->denyAccess();
 		//supprimer quelle ligne
 		$id = $_GET['idCommentaire'];
                 $idUser= $_SESSION['idUser'];
@@ -93,21 +89,12 @@ class commentaireController extends BaseController
 		}
 	}
 
-	PUBLIC FUNCTION edit()
-	{
-		$this->denyAccess();
-		$id = $_GET['idCommentaire'];
-		$commentaires = commentaireModel::getInstance()->fetchOne("idCommentaire={$id}");
-                $affiches =AfficheModel::getInstance()->fetchAll("order by idAffiche asc");
-		//$affiches=AfficheModel::getInstance()->typesAffichelist(AfficheModel::getInstance()->fetchAll("order by idAffiche asc"));
-		$this->smarty->assign("commentaires",$commentaires);
-		$this->smarty->assign("affiches",$affiches);
-		$this->smarty->display("edit.html");
-	}
+
 
 	public function update()
 	{
-	$id=$_POST['idCommentaire'];
+                 $this->denyAccess();
+                $id=$_POST['idCommentaire'];
 		$data['idUser']= $_SESSION['uid'];
 		$data['idAffiche']= $_POST['idAffiche'];
                 $data['commentaire']= $_POST['commentaire'];

@@ -55,8 +55,8 @@ abstract class BaseModel
 	public function insert($data)
 	{
 		//obtenirs des atrributs et values 
-		$fields = '';
-		$values = '';
+		$fields = "";
+		$values = "";
 		foreach($data as $key=>$value)
 		{
 			$fields .= "$key,";
@@ -67,7 +67,7 @@ abstract class BaseModel
 		$values = rtrim($values,',');
 		//sql：INSERT INTO news(title,content,hits) VALUES('title','content','30')
 		$sql = "INSERT INTO {$this->table}($fields) VALUES($values)";
-              
+                
 		//return un boollen
 		return $this->pdo->exec($sql);
 	}
@@ -95,6 +95,7 @@ abstract class BaseModel
 		//sql
 		$sql = "SELECT * FROM {$this->table} WHERE {$where}";
 		//return pdo rowcount
+               
 		return $this->pdo->rowCount($sql);
 	}
 }

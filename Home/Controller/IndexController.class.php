@@ -12,13 +12,15 @@ class IndexController extends BaseController
 {
 	public function index()
 	{
-		
+		$infoUser=$this->connectezVous();
+                $this->smarty->assign('infoUser',$infoUser);
 		$this->smarty->display('index.html');
 	}
 
     //
         	public function ProtectMyUT1()
-	{
+	{       
+                $infoUser=$this->connectezVous();
 		//subtree classfier
 		//$typesAffiches=TypesAfficheModel::getInstance()->typesAffichelist(TypesAfficheModel::getInstance()->fetchAll("order by idTypeAffiche asc"));
                 //$typesAffiches =TypesAfficheModel::getInstance()->fetchAll("order by idTypeAffiche asc");
@@ -59,14 +61,15 @@ class IndexController extends BaseController
                
 		//smarty afficher et assign valeurs
 		$this->smarty->assign(array('affiches'=>$affiches,
-							//'typesAffiches'=>$typesAffiches,
+							'infoUser'=>$infoUser,
 							'str'=>$str));
 		$this->smarty->display('ProtectMyUT1.html');
 	}
          //
         	public function  FindMy()
 	{
-                    	//subtree classfier
+                 $infoUser=$this->connectezVous();
+                //subtree classfier
 		//$typesAffiches=TypesAfficheModel::getInstance()->typesAffichelist(TypesAfficheModel::getInstance()->fetchAll("order by idTypeAffiche asc"));
                 $typesAffiches =TypesAfficheModel::getInstance()->typesAfficheFindMy("order by idTypeAffiche asc");
 		 
@@ -102,13 +105,15 @@ class IndexController extends BaseController
 		//smarty afficher et assign valeurs
 		$this->smarty->assign(array('affiches'=>$affiches,
 							'typesAffiches'=>$typesAffiches,
+                                                         'infoUser'=>$infoUser,
 							'str'=>$str));
 		
 		$this->smarty->display('FindMy.html');
 	}
          //
         	public function Article()
-	{
+	{       
+                     $infoUser=$this->connectezVous();
                   //récuperer une liste des categorie
                 //classfier la liste des categorie par son niveaux(différent niveux sou-catégorie)
 		$categories=CategorieModel::getInstance()->categorielist(CategorieModel::getInstance()->categorieArticle("order by idCategorie asc"));
@@ -139,6 +144,7 @@ class IndexController extends BaseController
 		//smarty afficher et assign valeurs
 		$this->smarty->assign(array('articles'=>$articles,
 							'categories'=>$categories,
+                                                        'infoUser'=>$infoUser,
 							'str'=>$str));  
          
 		
@@ -147,6 +153,7 @@ class IndexController extends BaseController
          //
           	public function evenement()
 	{
+                     $infoUser=$this->connectezVous();
                 $where="3>1 and idCategorie=8 ";
                     // pages 
 		$pagesize=3;
@@ -166,7 +173,7 @@ class IndexController extends BaseController
 
 		//smarty afficher et assign valeurs
 		$this->smarty->assign(array('articles'=>$articles,
-							
+							'infoUser'=>$infoUser,
 							'str'=>$str));  
          
 		
@@ -175,190 +182,10 @@ class IndexController extends BaseController
        //
             	public function Contactus()
 	{
-		
+		$infoUser=$this->connectezVous();
+                $this->smarty->assign(array('infoUser'=>$infoUser));
 		$this->smarty->display('Contactus.html');
 	}
        
 
-        
-        
-        
-        
-       //
-        
-               	public function Nouveauxproblemes()
-	{
-		
-		$this->smarty->display('Nouveauxproblemes.html');
-	}
-        
-               	public function  Cafeteria()
-	{
-		
-		$this->smarty->display('Cafeteria.html');
-	}
-        
-               	public function PNR()
-	{
-		
-		$this->smarty->display('PNR.html');
-	}
-        
-               	public function RU()
-	{
-		
-		$this->smarty->display('RU.html');
-	}
-        
-               	public function Rapporter()
-	{
-		
-		$this->smarty->display('Rapporter.html');
-	}
-       
-        public function indexMeilleur()
-	{
-		
-		$this->smarty->display('indexMeilleur.html');
-	}
-       
-        
-  
-       
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-	public function showList()
-	{
-			//1,links
-		$links=LinksModel::getInstance()->fetchAll();
-		//2,categorie de artcile
-		$categorys=CategoryModel::getInstance()->categoryList(CategoryModel::getInstance()->fetchAllJoin());
-		//3,article par mois
-		$months=ArticleModel::getInstance()->fetchAllWith();
-		//4 rechercher
-		$where=" 2>1 ";
-		if(!empty($_GET['category_id'])) $where.= " and article.category_id=".$_GET['category_id'];
-		if(!empty($_REQUEST['keyword'])) $where.= " and title like '%".$_REQUEST['keyword']."%' ";
-		if(!empty($_REQUEST['date'])) 
-		{
-			$date=$_REQUEST['date'];
-			
-			
-			
-			$c=date('Y-m-d',strtotime($date."-01"));
-			$d= date("Y-m-d",strtotime("+30 day",strtotime($c)));
-			$datedebut=strtotime($c);
-			$datefin=strtotime($d);
-
-			$where .=" and article.addate<={$datefin} and  article.addate>={$datedebut} ";
-			
-			
-		}
-
-		//5,pages
-		$pagesize	= 30;
-		$page		= isset($_GET['page']) ? $_GET['page'] : 1;
-		$startrow	= ($page-1)*$pagesize;
-		$records	= ArticleModel::getInstance()->rowCount($where);
-		$params= array('c'=>CONTROLLER,'a'=>ACTION);
-		if(!empty($_GET['category_id'])) $params['category_id']=$_GET['category_id'];
-		if(!empty($_REQUEST['keyword'])) $params['keyword']=$_REQUEST['keyword'];
-		if(!empty($_REQUEST['date'])) $params['date']=$_REQUEST['date'];
-		$pageObj	= new Pager($records,$pagesize,$page,$params);
-		$pagestring	= $pageObj->showPage();
-		//6,article jointure
-		$articles=ArticleModel::getInstance()->fetchAllJoin($where,$startrow,$pagesize);
-
-		$this->smarty->assign(array("links"=>$links,
-						"categorys"=>$categorys,
-						"months"=>$months,
-						"articles"=>$articles,
-						'pagestring'=>$pagestring));
-		$this->smarty->display("list.html");
-	}
-
-	//content :detail de article
-	public function content()
-	{
-		$id=$_GET['id'];
-		
-
-		
-		ArticleModel::getInstance()->updateRead($id);
-
-		$article=ArticleModel::getInstance()->fetchOneWithJoin($id);
-
-		$prevNext[]=ArticleModel::getInstance()->fetchOne("id<$id","id desc");
-		$prevNext[]=ArticleModel::getInstance()->fetchOne("id>$id","id asc");
-		$comments = CommentModel::getInstance()->commentList(
-			CommentModel::getInstance()->fetchAllWithJoin("$id")
-		);
-		$this->smarty->assign('article',$article);
-		$this->smarty->assign('comments',$comments);
-		$this->smarty->assign('prevNext',$prevNext);
-
-		$this->smarty->display("content.html");
-
-
-	}
-
-	public function send()
-	{
-		if(empty($_POST['pid']))
-		{
-			$data['pid']=0;
-			$data['article_id'] = $_POST['article_id'];
-			$data['content'] = $_POST['content'];
-			$data['content'] = $_POST['content'];
-			$data['addate']=time();
-			if(!empty($_SESSION['uid']))
-			{
-				$data['user_id'] = $_SESSION['uid'];
-			}else
-			{
-				$data['user_id']=10000;
-			}
-			if(CommentModel::getInstance()->insert($data))
-			{
-			$this->jump("c'est bon","?c=Index&a=content&id={$_POST['article_id']}");
-			}else
-			{
-				$this->jump("c'est pas bon","?c=Index&a=content&id={$_POST['article_id']}");
-			}
-
-
-		}else
-		{
-			$data['pid']=$_POST['pid'];
-			$data['article_id'] = $_POST['article_id'];
-			$data['content'] = $_POST['content'];
-			$data['content'] = $_POST['content'];
-			$data['addate']=time();
-			if(!empty($_SESSION['uid']))
-			{
-				$data['user_id'] = $_SESSION['uid'];
-			}else
-			{
-				$data['user_id']=0;
-			}
-			if(CommentModel::getInstance()->insert($data))
-			{
-			$this->jump("c'est bon","?c=Index&a=content&id={$_POST['article_id']}");
-			}else
-			{
-				$this->jump("c'est pas bon","?c=Index&a=content&id={$_POST['article_id']}");
-			}
-		}
-	}
 }

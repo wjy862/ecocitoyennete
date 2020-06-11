@@ -34,11 +34,22 @@ abstract class BaseController
 		}		
 	}
 
-	//sauter function
+	//redirecttion la page
 	protected function jump($message,$url='?',$time=3)
 	{
 		echo "<h2>{$message}</h2>";
 		header("refresh:{$time};url={$url}");
 		die();
+	}
+        //afficher le mail si l'utilisateur a connecté
+        protected function connectezVous()
+	{
+		
+		if(empty($_SESSION['mailUser']))
+		{
+                   return ("<li><a href="."?"."c=User&a=login".">s'inscrire/se connecter</a></li>");
+		}else{
+                     return $_SESSION['mailUser'];
+                }		
 	}
 }
