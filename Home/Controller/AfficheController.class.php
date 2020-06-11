@@ -65,7 +65,7 @@ class AfficheController extends BaseController
 		if(!empty($_REQUEST['idTypeAffiche'])) $where =" idTypeAffiche= ".$_REQUEST['idTypeAffiche']." ";
 		if(!empty($_REQUEST['keyword'])) $where.=" and titre like '%".$_REQUEST['keyword']."%' ";
                 if(!empty($_REQUEST['idAffiche'])) $where.=" and idAffiche=".$_REQUEST['idAffiche'];
-                 
+                  
 		// pages 
 		$pagesize=3;  
 		$page=isset($_GET['page']) ? $_GET['page'] :1;
@@ -115,11 +115,14 @@ class AfficheController extends BaseController
 	{
 		$data['idUser']= $_SESSION['idUser'];
 		$data['idTypeAffiche']= $_POST['idTypeAffiche'];
-		$data['titre']= $_POST['titre'];
-                $data['description']= $_POST['description'];
+		//$data['titre']= $_POST['titre'];
+                //$data['description']= $_POST['description'];
+                $data['titre'] = filter_input(INPUT_POST, 'titre', FILTER_SANITIZE_SPECIAL_CHARS);
+                $data['description'] = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_SPECIAL_CHARS);
+                $data['lieu'] = filter_input(INPUT_POST, 'lieu', FILTER_SANITIZE_SPECIAL_CHARS);
 		//$data['idTypeManipulation']= 1;
                 //$data['photo']= $_POST['photo'];
-                $data['lieu']= $_POST['lieu'];
+               // $data['lieu']= $_POST['lieu'];
 		//$data['top']= isset($_POST['top']) ? 1:0;
 		//$data['dateAff']= time();
                  if(!empty($_FILES["photo"])){
@@ -190,12 +193,15 @@ class AfficheController extends BaseController
 		$id=$_POST['idAffiche'];
 		$data['idUser']= $_SESSION['idUser'];
 		//$data['idTypeAffiche']= $_POST['idTypeAffiche'];
-                $data['titre']= $_POST['titre'];
-                $data['description']= $_POST['description'];
+               // $data['titre']= $_POST['titre'];
+                //$data['description']= $_POST['description'];
 		//$data['top']= isset($_POST['top']) ? 1:0;
 		//$data['idTypeManipulation']= $_POST['idTypeManipulation'];
 		//$data['photo']= $_POST['photo'];
-                $data['lieu']= $_POST['lieu'];
+                //$data['lieu']= $_POST['lieu'];
+                $data['titre'] = filter_input(INPUT_POST, 'titre', FILTER_SANITIZE_SPECIAL_CHARS);
+                $data['description'] = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_SPECIAL_CHARS);
+                $data['lieu'] = filter_input(INPUT_POST, 'lieu', FILTER_SANITIZE_SPECIAL_CHARS);
 		//$data['dateAff']= time();
                  if(!empty($_FILES["photo"])){
                 $photo=$_FILES["photo"];

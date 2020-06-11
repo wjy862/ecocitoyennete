@@ -21,11 +21,16 @@ class TypesAfficheModel extends BaseModel
 			//	$TypesAffiches[]=$value;
 				
 
-			//}
+			//} 
 		//}
 		//return $TypesAffiches;
 	//}
         
+        public function typesAfficheFindMy($ORDER="ORDER BY idTypeAffiche asc"){
+            	$sql = " SELECT * FROM {$this->table} WHERE idTypeAffiche <> 1  $ORDER";
+		//exec sql avec pdo return array de n dimensions 
+		return $this->pdo->fetchAll($sql);
+        }
         //une ligne
           public function fetchOne($where="2>1",$order="idTypeAffiche asc")
 	{

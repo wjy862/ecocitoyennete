@@ -28,12 +28,13 @@ class IndexController extends BaseController
 		$where="3>1 ";
 		//if(!empty($_REQUEST['idTypeAffiche'])) $where =" idTypeAffiche= ".$_REQUEST['idTypeAffiche']." ";
 		//if(!empty($_REQUEST['keyword'])) $where.=" and titre like '%".$_REQUEST['keyword']."%' ";
-                if(!empty($_REQUEST['idUser'])) {
-                     $where.=" and idUser like '%".$_REQUEST['idUser']."%' ";
+                if(!empty($_SESSION['idUser'])) {
+                     $where.=" and affiches.idUser = ".$_SESSION['idUser']." ";
+                    
                 }else{
-                  // $where.=" and 3<1 ";
+                   $where.=" and 3<1 ";
                 }
-                  
+         
                 
 		// pages 
 		$pagesize=5;  
@@ -67,18 +68,14 @@ class IndexController extends BaseController
 	{
                     	//subtree classfier
 		//$typesAffiches=TypesAfficheModel::getInstance()->typesAffichelist(TypesAfficheModel::getInstance()->fetchAll("order by idTypeAffiche asc"));
-                $typesAffiches =TypesAfficheModel::getInstance()->fetchAll("order by idTypeAffiche asc");
-		
+                $typesAffiches =TypesAfficheModel::getInstance()->typesAfficheFindMy("order by idTypeAffiche asc");
+		 
                 // rechercher des affiches
                     //condition de recherche
-		$where="3>1 ";
-		if(!empty($_REQUEST['idTypeAffiche'])) $where =" idTypeAffiche= ".$_REQUEST['idTypeAffiche']." ";
+		$where="3>1 and idTypeAffiche<>1 ";
+		if(!empty($_REQUEST['idTypeAffiche']) && $_REQUEST['idTypeAffiche']!=0) $where =" idTypeAffiche= ".$_REQUEST['idTypeAffiche']." ";
 		if(!empty($_REQUEST['keyword'])) $where.=" and titre like '%".$_REQUEST['keyword']."%' ";
-                if(!empty($_REQUEST['idUser'])) {
-                     $where.=" and idUser like '%".$_REQUEST['idUser']."%' ";
-                }else{
-                  // $where.=" and 3<1 ";
-                }
+               
                   
                 
 		// pages 
@@ -118,8 +115,10 @@ class IndexController extends BaseController
 		// rechercher des articles
                     //condition de recherche
 		$where="3>1 ";
+             
 		if(!empty($_REQUEST['idCategorie'])) $where =" idCategorie=".$_REQUEST['idCategorie'];
-		if(!empty($_REQUEST['keyword'])) $where.=" and titreArticle like '%".$_REQUEST['keyword']."%' ";
+              
+                if(!empty($_REQUEST['keyword'])) $where.=" and titreArticle like '%".$_REQUEST['keyword']."%' ";
 		// pages 
 		$pagesize=3;
 		$page=isset($_GET['page']) ? $_GET['page'] :1;

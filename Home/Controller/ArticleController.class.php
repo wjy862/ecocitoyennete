@@ -92,8 +92,11 @@ class ArticleController extends BaseController
 	{
 		$data['idUser']= $_SESSION['idUser'];
 		$data['idCategorie']= $_POST['idCategorie'];
-		$data['titreArticle']= $_POST['titreArticle'];
-                $data['contenuArticle']= $_POST['contenuArticle'];
+		//$data['titreArticle']= $_POST['titreArticle'];
+                //$data['contenuArticle']= $_POST['contenuArticle'];
+                
+                $data['titreArticle'] = filter_input(INPUT_POST, 'titreArticle', FILTER_SANITIZE_SPECIAL_CHARS);
+                $data['contenuArticle'] = filter_input(INPUT_POST, 'contenuArticle', FILTER_SANITIZE_SPECIAL_CHARS);
 		//$data['idTypeManipulation']= $_POST['idTypeManipulation'];
 		//$data['top']= isset($_POST['top']) ? 1:0;
 		//$data['dateArt']= time();
@@ -140,8 +143,10 @@ class ArticleController extends BaseController
 		$id=$_POST['idArticle'];
 		$data['idUser']= $_SESSION['idUser'];
 		$data['idCategorie']= $_POST['idCategorie'];
-		$data['titreArticle']= $_POST['titreArticle'];
-                $data['contenuArticle']= $_POST['contenuArticle'];
+                $data['titreArticle'] = filter_input(INPUT_POST, 'titreArticle', FILTER_SANITIZE_SPECIAL_CHARS);
+                $data['contenuArticle'] = filter_input(INPUT_POST, 'contenuArticle', FILTER_SANITIZE_SPECIAL_CHARS);
+		//$data['titreArticle']= $_POST['titreArticle'];
+                //$data['contenuArticle']= $_POST['contenuArticle'];
 		//$data['idTypeManipulation']= $_POST['idTypeManipulation'];
 		//$data['top']= isset($_POST['top']) ? 1:0;
 		//$data['dateArt']= time();

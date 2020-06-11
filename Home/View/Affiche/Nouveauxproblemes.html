@@ -72,9 +72,9 @@
 <form method="post" action="?c=Affiche&a=insert" enctype="multipart/form-data">
 
    <label for="Site">Sur quel site de l'université êtes vous ?</label> <br>
-    <input type = "radio" name="titre" value="1" checked> Arsenal
-<input type = "radio" name="titre" value="1"> Manufacture
-<input type = "radio" name="titre" value="1"> Ancienne faculté </p>
+    <input type = "radio" name="titre" value="Arsenal" checked> Arsenal
+<input type = "radio" name="titre" value="Manufacture"> Manufacture
+<input type = "radio" name="titre" value="Ancienne faculté"> Ancienne faculté </p>
 <br/>
 <label for="Description">Description du lieu de objet perdu:<input type="text" name="lieu" placeholder="Decrivez le lieu" />
 
@@ -84,6 +84,7 @@
 <p>Description:<input type="text" name="description" placeholder="Ecrivez la description" /></p>
 
 <p>Photo:<input type="file" name="photo" /></p>
+<input type=hidden name ="idTypeAffiche" value="1" >
 
 <p><input type="submit" class="boutton" value="Rapporter" ></p>
 

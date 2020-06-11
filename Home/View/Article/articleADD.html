@@ -85,11 +85,14 @@
 			  	<textarea required rows="20" name="contenuArticle" cols="80" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"/> </textarea>		
 			  	 <p>Catégorie			
 		<select name="idCategorie">
-                    <option value ="2">Volvo</option>
-                    <option value ="2">Saab</option>
-                    <option value="2">Opel</option>
-                    <option value="2">Audi</option>
-                </select></p>	
+		<option value="">Tous</option>
+		<{foreach $categories as $categorie}>
+		<option value="<{$categorie.idCategorie}>">
+			<{str_repeat('**',$categorie.level)}>
+			<{$categorie.nomCategorie}>
+		</option>
+		<{/foreach}>
+	</select></p>	
 			  	 <input type="submit" value="Envoyer">
 			  </div>
 			  <div class="col-md-6 get-right">

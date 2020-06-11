@@ -10,13 +10,13 @@ class AfficheModel extends BaseModel
 	{
 		
 		
-		$sql="select a.*, u.nomUser,u.prenomUser,u.mailUser ";
+		$sql="select affiches.*, u.nomUser,u.prenomUser,u.mailUser ";
 		$sql.="from (select * from affiches where idAffiche not in (SELECT a.idAffiche as idAffiche 
                 FROM affiches a , manipuleraffiche m 
-                WHERE a.idAffiche=m.idAffiche and m.idTypeManipulation =3)) a, users u 
-                where a.idUser=u.idUser ";
+                WHERE a.idAffiche=m.idAffiche and m.idTypeManipulation =3)) affiches, users u 
+                where affiches.idUser=u.idUser ";
 		$sql.="and ".$where;
-		$sql.=" order by a.idAffiche desc ";
+		$sql.=" order by affiches.idAffiche desc ";
 		$sql.="limit {$startrow},{$pagesize}";
 		
 		return $this->pdo->fetchAll($sql);
