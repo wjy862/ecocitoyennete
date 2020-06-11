@@ -25,7 +25,15 @@ class CategorieModel extends BaseModel
 			}
 		}
 		return $categories;
-	}
+	} 
+        
+        public function categorieArticle($ORDER="ORDER BY idTypeAffiche asc"){
+            	$sql = " SELECT * FROM {$this->table} WHERE idCategorie <> 8  $ORDER";
+		//exec sql avec pdo return array de n dimensions 
+		return $this->pdo->fetchAll($sql);
+        }
+        
+        
 
          //une ligne
           public function fetchOne($where="2>1",$order="idCategorie asc")

@@ -120,10 +120,10 @@ class ArticleController extends BaseController
 		//verifier sql exec
 		if(ArticleModel::getInstance()->delete($idArticle,$idUser,$dateArt))
 		{ 
-			$this->jump("idArticle={$idArticle} a reussi de supprimé","?c=Article");
+			$this->jump("idArticle={$idArticle} a reussi de supprimé","?c=Index&a=article");
 		}else
 		{
-			$this->jump("idArticle={$idArticle} a pas reussi de supprimé","?c=Article");
+			$this->jump("idArticle={$idArticle} a pas reussi de supprimé","?c=Index&a=article");
 		}
 	}
 

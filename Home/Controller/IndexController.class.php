@@ -25,7 +25,7 @@ class IndexController extends BaseController
 		
                 // rechercher des affiches
                     //condition de recherche
-		$where="3>1 ";
+		$where="3>1 and idTypeAffiche=1 ";
 		//if(!empty($_REQUEST['idTypeAffiche'])) $where =" idTypeAffiche= ".$_REQUEST['idTypeAffiche']." ";
 		//if(!empty($_REQUEST['keyword'])) $where.=" and titre like '%".$_REQUEST['keyword']."%' ";
                 if(!empty($_SESSION['idUser'])) {
@@ -109,12 +109,13 @@ class IndexController extends BaseController
          //
         	public function Article()
 	{
-                  //subtree classfier
-		$categories=CategorieModel::getInstance()->categorielist(CategorieModel::getInstance()->fetchAll("order by idCategorie asc"));
+                  //récuperer une liste des categorie
+                //classfier la liste des categorie par son niveaux(différent niveux sou-catégorie)
+		$categories=CategorieModel::getInstance()->categorielist(CategorieModel::getInstance()->categorieArticle("order by idCategorie asc"));
 
-		// rechercher des articles
+		// rechercher des articles 
                     //condition de recherche
-		$where="3>1 ";
+		$where="3>1 and idCategorie<>8 ";
              
 		if(!empty($_REQUEST['idCategorie'])) $where =" idCategorie=".$_REQUEST['idCategorie'];
               
@@ -132,7 +133,7 @@ class IndexController extends BaseController
 		$pageobj=new \Frame\Vendor\Pager($records,$pagesize,$page,$params);
 		$str=$pageobj->showPage();
 
-		// pages donness
+		// une liste des articles
 		$articles=ArticleModel::getInstance()->fetchAllWithJoin($where,$startrow,$pagesize);
 
 		//smarty afficher et assign valeurs
@@ -146,7 +147,7 @@ class IndexController extends BaseController
          //
           	public function evenement()
 	{
-                $where="3>1 ";
+                $where="3>1 and idCategorie=8 ";
                     // pages 
 		$pagesize=3;
 		$page=isset($_GET['page']) ? $_GET['page'] :1;
