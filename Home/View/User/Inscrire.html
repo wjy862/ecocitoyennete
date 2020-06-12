@@ -1,0 +1,96 @@
+<script type="text/javascript">
+<?php
+
+
+$bdd=newPDO('')
+
+if(isset($_POST['inscription']))
+{
+
+	if (!empty($_POST['mailUser']) AND !empty($_POST['password']) AND !empty($_POST['password2'])
+	{
+		if($password == $password2)
+		{
+				
+		}
+		else
+		{
+			echos 'Mots de passes différents'
+		}
+	}
+
+	}
+}
+
+
+?>
+
+</script>
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+
+
+  </head>
+
+  <body>
+
+<h1 style="text-align:center">Inscription</h1>
+
+<script type="text/javascript">
+function SetFocus()
+{
+	if(document.form1.username.value==""){
+		document.form1.username.focus();
+	}else{
+		document.form1.username.select();
+	}
+}
+</script>
+
+		<div align="center" >
+			
+			
+	<form name="form1" method="post" action="" id="form1" onSubmit="return checkForm();">
+		<label>Email:</label>
+		<input type="email" name="mailUser" placeholder="Entrez votre email" required><br><br>
+
+		<label>Password:</label>
+		<input type="password" name="password" placeholder="Entrez votre password" required><br><br>
+
+		<label>Confirmation du password:</label>
+		<input type="password" name="passwordZ" placeholder="Confirmez votre password" required><br>
+		<input type="submit" name="inscription"  value="Je m'inscris">
+		<input type=reset value="Reset">
+	</form>
+
+</div>
+
+  </body>
+
+</html>
+
+<script language="javascript">
+
+SetFocus();
+function checkForm()
+{
+	//定义用户名、密码正则表达式
+	var reg1 = /^(\w{5,15})$/;
+	if(!reg1.test(document.form1.username.value))
+	{
+		alert("pas correct format de nom");
+		document.form1.username.focus();
+		return false;
+	}else if(!reg1.test(document.form1.password.value))
+	{
+		alert("pas correct format de mot de passe");
+		document.form1.password.focus();
+		return false;
+	}
+}
+</script>
