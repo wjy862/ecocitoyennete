@@ -1,27 +1,46 @@
 <script type="text/javascript">
 <?php
 
-
-$bdd=newPDO('')
+<?php
 
 if(isset($_POST['inscription']))
 {
-
-	if (!empty($_POST['mailUser']) AND !empty($_POST['password']) AND !empty($_POST['password2'])
+	public function insert()
 	{
-		if($password == $password2)
+
+		
+		$this->denyAccess();
+		
+		$data['mailUser']	= $_POST['mailUser'];
+		$data['password']	= md5($_POST['password']);
+                $data['nomUser']		= $_POST['nomUser'];
+		$data['prenomUser']		= $_POST['prenomUser'];
+		$data['mailUser']		= $_POST['mailUser'];
+		$data['idTypeUser']		= $_POST['idTypeUser'];
+
+		//verifier si l'utilisateur est deja exsite mailUser='admin'
+		if(UserModel::getInstance()->rowCount("mailUser='{$data['mailUser']}'"))
 		{
-				
+			$this->jump("nom : {$data['mailUser']}est utlisé","?c=User");
 		}
-		else
+
+		//les 2 mdp soivent coherent
+		if($data['password'] != md5($_POST['confirmpwd']))
 		{
-			echos 'Mots de passes différents'
+			$this->jump("les 2 mot de passes doivent cohérents","?c=User");
+		}
+
+		//sql exec verifier
+		if(UserModel::getInstance()->insert($data))
+		{
+			$this->jump("reussi","?c=User");
+		}else
+		{
+			$this->jump("pas reussi","?c=User");
 		}
 	}
 
-	}
 }
-
 
 ?>
 
@@ -56,6 +75,10 @@ function SetFocus()
 			
 			
 	<form name="form1" method="post" action="" id="form1" onSubmit="return checkForm();">
+		<label>NomUser:</label>
+		<input type="text" name="nomUser" placeholder="Entrez votre nom" required><br><br>
+		<label>PrenomUser:</label>
+		<input type="text" name="prenomUser" placeholder="Entrez votre nom" required><br><br>
 		<label>Email:</label>
 		<input type="email" name="mailUser" placeholder="Entrez votre email" required><br><br>
 
@@ -63,7 +86,7 @@ function SetFocus()
 		<input type="password" name="password" placeholder="Entrez votre password" required><br><br>
 
 		<label>Confirmation du password:</label>
-		<input type="password" name="passwordZ" placeholder="Confirmez votre password" required><br>
+		<input type="password" name="confirmpwd" placeholder="Confirmez votre password" required><br>
 		<input type="submit" name="inscription"  value="Je m'inscris">
 		<input type=reset value="Reset">
 	</form>
