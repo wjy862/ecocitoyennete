@@ -25,8 +25,8 @@ class UserController extends BaseController
 	public function add()
 	{
 		
-		$this->denyAccess();
-		$this->smarty->display("add.html");
+		//$this->denyAccess();
+		$this->smarty->display("Inscrire.html");
 	}
 
 	//ajouter des donnes vient de form de add.html
@@ -34,7 +34,7 @@ class UserController extends BaseController
 	{
 
 		
-		$this->denyAccess();
+		//$this->denyAccess();
 		
 		$data['mailUser']	= $_POST['mailUser'];
 		$data['password']	= md5($_POST['password']);

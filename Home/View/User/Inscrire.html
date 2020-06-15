@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<!--<script type="text/javascript">
 	
 <?php
 
@@ -44,7 +44,7 @@ if(isset($_POST['inscription']))
 ?>
 
 </script>
-
+-->
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -73,7 +73,7 @@ function SetFocus()
 		<div align="center" >
 			
 			
-	<form name="form1" method="post" action="" id="form1" onSubmit="return checkForm();">
+	<form name="form1" method="post" action="?c=User&a=insert" id="form1" onSubmit="return checkForm();">
 		<label>NomUser:</label>
 		<input type="text" name="nomUser" placeholder="Entrez votre nom" required><br><br>
 		<label>PrenomUser:</label>
@@ -83,7 +83,7 @@ function SetFocus()
 
 		<label>Password:</label>
 		<input type="password" name="password" placeholder="Entrez votre password" required><br><br>
-
+                <input type=hidden name ="idTypeUser" value="1" >
 		<label>Confirmation du password:</label>
 		<input type="password" name="confirmpwd" placeholder="Confirmez votre password" required><br>
 		<input type="submit" name="inscription"  value="Je m'inscris">

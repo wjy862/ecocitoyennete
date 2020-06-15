@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 12 juin 2020 à 06:32
+-- Généré le : lun. 15 juin 2020 à 14:45
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP : 7.4.3
 
@@ -95,23 +95,14 @@ CREATE TABLE `articles` (
 --
 
 INSERT INTO `articles` (`idArticle`, `titreArticle`, `contenuArticle`, `idUser`, `idCategorie`) VALUES
-(1, 'ecologie avec ut1', 'LivreA', 1, 1),
-(2, 'Le développement durable', 'LivreB', 1, 1),
-(3, 'L\'énergie ', 'LivreC', 1, 1),
-(4, 'Ecologie', 'Ecologie est un thème de..', 1, 1),
-(5, 'Conférence chez soi', 'Une présentation se fait par..', 1, 1),
-(6, 'nouvelle regle', 'le gouvernement prevoit que...', 1, 1),
-(7, 'jour du terre', 'cette année, le jour du terre va...', 1, 1),
-(9, 'dsfcdsfdsfdsf', '<p>zdzdzdzd</p>', 3, 1),
-(11, 'ffffffffffffffffffooo', 'kiruku', 3, 3),
-(12, 'sdsdc', 'scssssssssssssssssssssssssssssssssssssss', 3, 4),
-(13, 'aaaaaa', 'aaaaaaaaaa', 1, 8),
-(14, 'bbbbb', 'bbbbbbbbbb', 3, 8),
-(15, 'ccccccc', 'cccccccccccccc', 3, 8),
-(16, 'c&#39;est une article', 'c&#39;est une article', 3, 1),
-(17, 'dfds', 'fdsfdsf', 3, 7),
-(19, 'gfhfgdhfg', 'dhfgdhfgdh', 3, 6),
-(20, 'fresfgs', 'regdfsgtrè-_-(&#39;è(&#34;', 3, 7);
+(1, 'ecologie avec ut1', 'C\'est dans le cadre de ses \"conférences sur l\'environnement\" que l\'EJUC a le plaisir de recevoir M. Gonzalo Sozzo, Professeur à l’Université nationale du littoral (Santa Fe, Argentine) et Directeur scientifique de l’Institut d’études avancées de Santa Fe.\r\n\r\nIl viendra présenter son nouveau livre intitulé \"El giro ecologico del derecho privado\" portant sur \"Le virage écologique du droit privé : le cas du code civil et commercial argentin\".', 1, 1),
+(2, 'Le développement durable', 'Le développement durable est « un développement qui répond aux besoins du présent sans compromettre la capacité des générations futures à répondre aux leurs », citation de Mme Gro Harlem Brundtland, Premier Ministre norvégien (1987)', 1, 1),
+(3, 'L\'énergie ', 'Les énergies renouvelables (EnR) sont des sources d\'énergie dont le renouvellement naturel est assez rapide pour qu\'elles puissent être considérées comme inépuisables à l\'échelle du temps humain.', 1, 1),
+(4, 'Ecologie', 'L\'écologie ou écologie scientifique, parfois assimilée à la bioécologie ou à la bionomie, est une science qui étudie les êtres vivants dans leur milieu en tenant compte de leurs interactions. Cet ensemble, qui contient les êtres vivants, leur milieu de vie et les relations qu\'ils entretiennent, forme un écosystème', 1, 1),
+(5, 'Conférence chez soi', 'a conférence est l\'une des formes de conversation entre personnes. Elle est une confrontation d\'idées sur un sujet jugé d\'importance par les participants. C\'est pourquoi son organisation est généralement formelle', 1, 1),
+(6, 'nouvelle regle', 'Depuis le 1er avril 2017, une nouvelle réglementation relative à l’inspection des systèmes de réfrigération, de climatisation et des pompes à chaleur réversibles de plus de 12 kW est entrée en vigueur.\r\n\r\nQuels sont les systèmes concernés par cette réglementation ?\r\n\r\n- « Systèmes simples » : Systèmes de climatisation et pompes à chaleur réversibles dont la puissance frigorifique nominale utile est supérieure à 12 kW et qui sont utilisés pour satisfaire les exigences de confort des occupants.\r\n\r', 1, 1),
+(7, 'Journée Mondiale de la Terre', 'Journée Mondiale de la Terre. Cet évènement a été célébré pour la première fois le 22 avril 1970. le Jour de la Terre est aujourd\'hui reconnu comme l\'événement environnemental populaire le plus important au monde. Le fondateur de cet événement est le sénateur américain Gaylord Nelson', 1, 1),
+(9, 'La citoyenneté ', 'La citoyenneté est le fait pour un individu, pour une famille ou pour un groupe, d\'être reconnu officiellement comme citoyen, c\'est-à-dire membre d\'une ville ayant le statut de cité, ou plus généralement d\'un État.', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -268,28 +259,6 @@ CREATE TABLE `manipulerarticle` (
   `idTypeManipulation` int(11) NOT NULL,
   `idArticle` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `manipulerarticle`
---
-
-INSERT INTO `manipulerarticle` (`idUser`, `dateArt`, `idTypeManipulation`, `idArticle`) VALUES
-(3, '0000-00-00', 3, 9),
-(3, '0000-00-00', 3, 11),
-(3, '0000-00-00', 3, 12),
-(3, '0000-00-00', 3, 17),
-(3, '0000-00-00', 3, 19),
-(3, '0000-00-00', 3, 20),
-(3, '2019-03-20', 3, 3),
-(1, '2019-08-14', 1, 7),
-(1, '2019-09-18', 2, 3),
-(1, '2020-04-02', 1, 6),
-(1, '2020-05-01', 1, 5),
-(2, '2020-05-08', 2, 2),
-(1, '2020-05-15', 1, 4),
-(1, '2020-05-21', 1, 1),
-(1, '2020-05-30', 1, 3),
-(1, '2020-07-15', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -533,7 +502,8 @@ INSERT INTO `users` (`idUser`, `nomUser`, `prenomUser`, `mailUser`, `idTypeUser`
 (1, 'Bernard ', 'Petit', 'Bernard.Petit@gmail.com', 1, 'e10adc3949ba59abbe56e057f20f883e', 1),
 (2, 'Dubois ', 'David', 'Dubois.David@gmail.com', 2, 'e10adc3949ba59abbe56e057f20f883e', 1),
 (3, 'Bonnet ', 'Lambert', 'Bonnet.Lambert@gmail.com', 3, 'e10adc3949ba59abbe56e057f20f883e', 1),
-(9, 'tim', 'tom', 'mail1@gmail.com', 2, 'e10adc3949ba59abbe56e057f20f883e', 0);
+(9, 'tim', 'tom', 'mail1@gmail.com', 2, 'e10adc3949ba59abbe56e057f20f883e', 0),
+(11, 'Bonnet1', 'Bonnet1', 'mbert@gmail.com', 1, 'e10adc3949ba59abbe56e057f20f883e', 0);
 
 --
 -- Index pour les tables déchargées
@@ -791,7 +761,7 @@ ALTER TABLE `typeuser`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Contraintes pour les tables déchargées
