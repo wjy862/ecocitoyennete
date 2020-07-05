@@ -7,4 +7,4 @@ define("APP_PATH",ROOT_PATH."Home".DS);
 
 require_once(ROOT_PATH."Frame".DS."Frame.class.php");
 
-Frame\Frame::run();
+Frame\Frame::run();    
